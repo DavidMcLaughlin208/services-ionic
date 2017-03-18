@@ -21,18 +21,32 @@ export class LoginPage {
 
   public login() {
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if(allowed) {
+    this.auth.login(this.registerCredentials).subscribe(res => {
+      if (res) {
+        console.log(res);
         setTimeout(() => {
-          this.loading.dismiss();
-          this.nav.setRoot(HomePage)
-        });
+        this.loading.dismiss();
+        this.nav.setRoot(HomePage)
+      });
       } else {
-        this.showError("Access Denied");
+        this.showError('Access Denied');
       }
-    }, error => {
+    },
+    error => {
       this.showError(error);
     });
+    // this.auth.login(this.registerCredentials).subscribe(allowed => {
+    //   if(allowed) {
+    //     setTimeout(() => {
+    //       this.loading.dismiss();
+    //       this.nav.setRoot(HomePage)
+    //     });
+    //   } else {
+    //     this.showError("Access Denied");
+    //   }
+    // }, error => {
+    //   this.showError(error);
+    // });
   }
 
   showLoading() {
