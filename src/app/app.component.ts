@@ -8,6 +8,9 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { SaladAssPage } from '../pages/salad-ass/salad-ass';
 import { LoginPage } from '../pages/login/login';
+import { PlumbingPage } from '../pages/plumbing/plumbing';
+import { ElectricalPage } from '../pages/electrical/electrical';
+import { HvacPage } from '../pages/hvac/hvac';
 
 
 @Component({
@@ -28,8 +31,9 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HomePage },
-      { title: 'My First List', component: ListPage },
+      { title: 'Plumbing', component: PlumbingPage },
+      { title: 'Electrical', component: ElectricalPage },
+      { title: 'HVAC', component: HvacPage },
       { title: 'THE Salad Ass', component: SaladAssPage }
     ];
   }

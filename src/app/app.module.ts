@@ -9,6 +9,7 @@ import { ElectricalPage } from '../pages/electrical/electrical';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { AuthService } from '../providers/auth-service';
+import { RequestService } from '../providers/request-service';
 import { HvacPage } from '../pages/hvac/hvac';
 import { PlumbingPage } from '../pages/plumbing/plumbing';
 
@@ -42,6 +43,7 @@ import { PlumbingPage } from '../pages/plumbing/plumbing';
     HvacPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-  AuthService]
+  AuthService,
+  RequestService]
 })
 export class AppModule {}

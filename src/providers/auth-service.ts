@@ -32,11 +32,10 @@ export class AuthService {
       //   this.currentUser = new User('Simon', 'saimon@devdactic.com');
       //   observer.next(access);
       //   observer.complete();
-
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      return this.http.get("http://realtime-services.herokuapp.com/clients")
-        .map(res => res.json())
+      return this.http.post("http://realtime-services.herokuapp.com/clients/sign_in", credentials, options )
+        .map(res => res)//.json())
         .catch(this.handleError);
     };
   }
@@ -70,6 +69,7 @@ export class AuthService {
   public logout() {
     return Observable.create(observer => {
       this.currentUser = null;
+      window.localStorage.setItem( 'authToken', null )
       observer.next(true);
       observer.complete();
     })
