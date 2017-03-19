@@ -1,17 +1,25 @@
+$defaultBackgroundColor: #000;
+
 page-login {
 
   .login-content {
-    background: #8b929e;
+    background: lighten($defaultBackgroundColor, 20%);
 
     .logo-row {
       padding-top: 50px;
       padding-bottom: 20px;
     }
 
+    .team-logo {
+      border: 10px solid white;
+    }
+
     .login-box {
-      background: #bababa;
+      opacity: .9;
+      background: #8d9fa2;
       padding: 20px 20px 0px 20px;
-      margin-top: 30px;
+      margin: 30px 20px 0px 20px;
+      border-radius: 20px;
     }
 
     ion-row {
@@ -26,9 +34,7 @@ page-login {
      ion-item {
          border-radius: 30px !important;
          padding-left: 30px !important;
-         font-size: 0.9em;
          margin-bottom: 10px;
-         border: 1px solid #ffffff;
          border-bottom: 0px !important;
          box-shadow: none !important;
      }
@@ -52,8 +58,36 @@ page-login {
 
      .register-btn {
        color: #000000;
-       font-size: 0.8em;
+
      }
+    
+     .register-btn {
+      color: #fff;
+     }
+
+     img {
+      border-radius: 50%;
+     }
+
   }
 
+  .login-content:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: .4;
+    background-image: url('../../assets/tools.jpg');
+    background-repeat: no-repeat;
+    background-position: 10% 0%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
 }
