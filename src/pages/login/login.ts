@@ -31,6 +31,7 @@ export class LoginPage {
       if (res.authToken) {
         window.localStorage.setItem( 'authToken', res.authToken );
         console.log(res);
+        console.log(window.localStorage.getItem( 'authToken'));
         setTimeout(() => {
           this.loading.dismiss();
           this.nav.setRoot(HomePage)

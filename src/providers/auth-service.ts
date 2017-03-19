@@ -34,14 +34,14 @@ export class AuthService {
       //   observer.complete();
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      return this.http.post("http://realtime-services.herokuapp.com/clients/sign_in", credentials, options )
-        .map(res => res)//.json())
-        .catch(this.handleError);
+      return this.http.post("http://secret-taiga-76523.herokuapp.com/sessions", credentials, options )
+        .map(res => res.json())
+        .catch(this.handleLoginError);
     };
   }
 
 
-  private handleError(error) {
+  private handleLoginError(error) {
     console.error(error);
     return Observable.throw('Invalid Credentials');
   }
@@ -56,10 +56,15 @@ export class AuthService {
       // })
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
-      return this.http.post("http://realtime-services.herokuapp.com/users", credentials, options)
+      return this.http.post("http://secret-taiga-76523.herokuapp.com/clients", credentials, options)
         .map(res => res.json())
-        .catch(this.handleError);
+        .catch(this.handleRegisterError);
     }
+  }
+
+  private handleRegisterError(error) {
+    console.error(error);
+    return Observable.throw(error.json().errors.join(" "));
   }
 
   public getUserInfo() : User {
