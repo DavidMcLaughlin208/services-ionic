@@ -31,6 +31,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
+      { title: 'Home', component: HomePage },
       { title: 'Plumbing', component: PlumbingPage },
       { title: 'Electrical', component: ElectricalPage },
       { title: 'HVAC', component: HvacPage },
@@ -51,6 +52,7 @@ export class MyApp {
     // close the menu when clicking a link from the menu
     this.menu.close();
     // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
+    this.nav.push(page.component)
+    // this.nav.setRoot(page.component);
   }
 }

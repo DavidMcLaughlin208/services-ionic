@@ -12,6 +12,9 @@ import { AuthService } from '../providers/auth-service';
 import { RequestService } from '../providers/request-service';
 import { HvacPage } from '../pages/hvac/hvac';
 import { PlumbingPage } from '../pages/plumbing/plumbing';
+import { ProviderRegisterPage } from '../pages/provider-register/provider-register';
+import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { PlumbingPage } from '../pages/plumbing/plumbing';
     LoginPage,
     RegisterPage,
     PlumbingPage,
-    HvacPage
+    HvacPage,
+    ProviderRegisterPage,
+    ProviderRegisterPage2
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -40,7 +45,9 @@ import { PlumbingPage } from '../pages/plumbing/plumbing';
     LoginPage,
     RegisterPage,
     PlumbingPage,
-    HvacPage
+    HvacPage,
+    ProviderRegisterPage,
+    ProviderRegisterPage2
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthService,

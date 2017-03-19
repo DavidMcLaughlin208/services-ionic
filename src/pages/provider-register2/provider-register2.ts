@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { ProviderRegisterPage } from '../provider-register/provider-register';
 
 @Component({
-  selector: 'page-register',
-  templateUrl: 'register.html'
+  selector: 'page-provider-register2',
+  templateUrl: 'provider-register2.html'
 })
-export class RegisterPage {
+export class ProviderRegisterPage2 {
   createSuccess = false;
-  registerCredentials = { client: {email: '', password: '', firstName: '', lastName: '', phoneNumber: '', street_address: '', city: '', state: '', zipcode: '' } };
+  serviceObject = { services: { plumbing: { checked: false, base_rate: '' },
+                              electrical: { checked: false, base_rate: ''},
+                              hvac: { checked: false, base_rate: ''},
+                              miscellaneous: { checked: false, base_rate: '' }
+                              },
+                              auth_token: window.localStorage.getItem("authToken") };
 
   constructor(public nav: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController) {}
 
   public register() {
-    console.log(this.registerCredentials)
-    this.auth.register(this.registerCredentials, "clients").subscribe(res => {
+    console.log(this.serviceObject)
+    this.auth.register(this.serviceObject, "provider_services").subscribe(res => {
       if(res) {
         this.createSuccess = true;
-        window.localStorage.setItem("authToken", res.authToken);
-        this.showPopup("Success", "Account created.");
+        this.showPopup("Success", "Your services have been logged.");
       } else {
         this.showPopup("Error", "Problem creating account.");
       }
@@ -38,7 +41,7 @@ export class RegisterPage {
         text: 'OK',
         handler: data => {
           if(this.createSuccess) {
-            this.nav.popToRoot();
+            this.nav.push(ProviderRegisterPage2);
           }
         }
       }]
@@ -46,12 +49,9 @@ export class RegisterPage {
     alert.present();
   }
 
-  registerProvider() {
-    this.nav.push(ProviderRegisterPage);
-  }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+    console.log('ionViewDidLoad ProviderRegister2Page');
   }
 
 }
