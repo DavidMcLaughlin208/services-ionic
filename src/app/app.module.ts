@@ -11,6 +11,7 @@ import { RegisterPage } from '../pages/register/register';
 import { AuthService } from '../providers/auth-service';
 import { HvacPage } from '../pages/hvac/hvac';
 import { PlumbingPage } from '../pages/plumbing/plumbing';
+import { GoogleMap } from '../components/google-map/google-map';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PlumbingPage } from '../pages/plumbing/plumbing';
     LoginPage,
     RegisterPage,
     PlumbingPage,
-    HvacPage
+    HvacPage,
+    GoogleMap
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -40,6 +42,7 @@ import { PlumbingPage } from '../pages/plumbing/plumbing';
     RegisterPage,
     PlumbingPage,
     HvacPage
+    
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthService]

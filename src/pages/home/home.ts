@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Geolocation } from 'ionic-native';
 
 import { NavController, NavParams } from 'ionic-angular';
 import { ElectricalPage } from '../electrical/electrical';
@@ -6,6 +7,7 @@ import { PlumbingPage } from '../plumbing/plumbing';
 import { HvacPage } from '../hvac/hvac';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../providers/auth-service';
+import { MapDiv } from '../pages/maps/maps';
 
 
 @Component({
