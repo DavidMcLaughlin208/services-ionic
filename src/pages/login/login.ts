@@ -3,6 +3,7 @@ import { NavController, AlertController, LoadingController, Loading, NavParams }
 import { AuthService } from '../../providers/auth-service';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
+import { ProviderHomePage} from '../provider-home/provider-home'
 
 
 @Component({
@@ -34,7 +35,11 @@ export class LoginPage {
         console.log(window.localStorage.getItem( 'authToken'));
         setTimeout(() => {
           this.loading.dismiss();
-          this.nav.setRoot(HomePage)
+          if(res.client){
+            this.nav.setRoot(HomePage)
+          } else {
+            this.nav.setRoot(ProviderHomePage)
+          }
         });
       } else {
         this.showError('Invalid Credentials');

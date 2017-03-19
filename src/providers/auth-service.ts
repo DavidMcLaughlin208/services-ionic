@@ -47,32 +47,11 @@ export class AuthService {
   }
 
   public register(credentials, accountType) {
-    if(credentials.email === null || credentials.password === null){
-      return Observable.throw("Please insert credentials");
-    } else {
-      // return Observable.create(observer => {
-      //   observer.next(true);
-      //   observer.complete();
-      // })
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-      let options = new RequestOptions({ headers: headers });
-      return this.http.post("http://secret-taiga-76523.herokuapp.com/" + accountType, credentials, options)
-        .map(res => res.json())
-        .catch(this.handleRegisterError);
-    }
-  }
-
-  public registerServices(credentials, accountType) {
-      // return Observable.create(observer => {
-      //   observer.next(true);
-      //   observer.complete();
-      // })
-      let headers = new Headers({ 'Content-Type': 'application/json' });
-      let options = new RequestOptions({ headers: headers });
-      return this.http.post("http://secret-taiga-76523.herokuapp.com/" + accountType, credentials, options)
-        .map(res => res.json())
-        .catch(this.handleRegisterError);
-    }
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/" + accountType, credentials, options)
+      .map(res => res.json())
+      .catch(this.handleRegisterError);
   }
 
   private handleRegisterError(error) {

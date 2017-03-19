@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-provider-register2',
@@ -23,6 +24,7 @@ export class ProviderRegisterPage2 {
       if(res) {
         this.createSuccess = true;
         this.showPopup("Success", "Your services have been logged.");
+
       } else {
         this.showPopup("Error", "Problem creating account.");
       }
@@ -41,12 +43,29 @@ export class ProviderRegisterPage2 {
         text: 'OK',
         handler: data => {
           if(this.createSuccess) {
-            this.nav.push(ProviderRegisterPage2);
+            this.nav.setRoot(HomePage)
+            this.nav.popToRoot();
           }
         }
       }]
     })
     alert.present();
+  }
+
+  plumbingChecked(){
+    this.serviceObject.services.plumbing.checked = !this.serviceObject.services.plumbing.checked;
+  }
+
+  electricalChecked(){
+    this.serviceObject.services.electrical.checked = !this.serviceObject.services.electrical.checked;
+  }
+
+  hvacChecked(){
+    this.serviceObject.services.hvac.checked = !this.serviceObject.services.hvac.checked;
+  }
+
+  miscellaneousChecked(){
+    this.serviceObject.services.miscellaneous.checked = !this.serviceObject.services.miscellaneous.checked;
   }
 
 
