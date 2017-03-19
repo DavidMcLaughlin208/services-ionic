@@ -24,11 +24,6 @@ export class LoginPage {
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(res => {
       console.log(res)
-      // if (true === true) {
-      //   window.localStorage.setItem( 'authToken', 'WSbmlVC3/S0LDXtU8MiWXndaD9OYrwuGV2ns99DGh1cPOuIquI5jc+qBHQV5u2hX43Y=' );
-      //   console.log(window.localStorage.getItem( 'authToken'));
-      //   this.loading.dismiss();
-      //   this.nav.setRoot(HomePage);
       if (res.authToken) {
         window.localStorage.setItem( 'authToken', res.authToken );
         console.log(res);

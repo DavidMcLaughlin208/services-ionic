@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
-import { HomePage } from '../home/home';
+import { ProviderHomePage } from '../provider-home/provider-home';
 
 @Component({
   selector: 'page-provider-register2',
@@ -13,8 +13,7 @@ export class ProviderRegisterPage2 {
                               electrical: { checked: false, base_rate: ''},
                               hvac: { checked: false, base_rate: ''},
                               miscellaneous: { checked: false, base_rate: '' }
-                              },
-                              auth_token: window.localStorage.getItem("authToken") };
+                              }, auth_token: window.localStorage.getItem('authToken') };
 
   constructor(public nav: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController) {}
 
@@ -43,8 +42,9 @@ export class ProviderRegisterPage2 {
         text: 'OK',
         handler: data => {
           if(this.createSuccess) {
-            this.nav.setRoot(HomePage)
-            this.nav.popToRoot();
+            this.nav.push(ProviderHomePage);
+            this.nav.setRoot(ProviderHomePage);
+
           }
         }
       }]
