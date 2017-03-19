@@ -21,18 +21,40 @@ export class LoginPage {
 
   public login() {
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if(allowed) {
+    this.auth.login(this.registerCredentials).subscribe(res => {
+      console.log(res)
+      // if (true === true) {
+      //   window.localStorage.setItem( 'authToken', 'WSbmlVC3/S0LDXtU8MiWXndaD9OYrwuGV2ns99DGh1cPOuIquI5jc+qBHQV5u2hX43Y=' );
+      //   console.log(window.localStorage.getItem( 'authToken'));
+      //   this.loading.dismiss();
+      //   this.nav.setRoot(HomePage);
+      if (res.authToken) {
+        window.localStorage.setItem( 'authToken', res.authToken );
+        console.log(res);
+        console.log(window.localStorage.getItem( 'authToken'));
         setTimeout(() => {
           this.loading.dismiss();
           this.nav.setRoot(HomePage)
         });
       } else {
-        this.showError("Access Denied");
+        this.showError('Invalid Credentials');
       }
-    }, error => {
+    },
+    error => {
       this.showError(error);
     });
+    // this.auth.login(this.registerCredentials).subscribe(allowed => {
+    //   if(allowed) {
+    //     setTimeout(() => {
+    //       this.loading.dismiss();
+    //       this.nav.setRoot(HomePage)
+    //     });
+    //   } else {
+    //     this.showError("Access Denied");
+    //   }
+    // }, error => {
+    //   this.showError(error);
+    // });
   }
 
   showLoading() {
@@ -48,7 +70,7 @@ export class LoginPage {
     });
 
     let alert = this.alertCtrl.create({
-      title: 'Fail',
+      title: 'Failure',
       subTitle: text,
       buttons: ["OK"]
     });
