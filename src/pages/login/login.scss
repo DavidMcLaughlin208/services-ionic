@@ -11,7 +11,7 @@ page-login {
     }
 
     .team-logo {
-      border: 10px solid white;
+      border: 4px #8d9fa2;
     }
 
     .login-box {
@@ -19,7 +19,7 @@ page-login {
       background: #8d9fa2;
       padding: 20px 20px 0px 20px;
       margin: 30px 20px 0px 20px;
-      border-radius: 20px;
+      border-radius: 10px;
     }
 
     ion-row {
@@ -61,8 +61,8 @@ page-login {
     }
 
     img {
-      border-radius: 40%;
-      opacity: .9;
+      border-radius: 10%;
+      opacity: .7;
     }
 
   }
