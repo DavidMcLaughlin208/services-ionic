@@ -13,24 +13,18 @@
 
   <h3>Homee 2.0</h3>
 
-  <p>
-    You have a home disaster? This app will literally help the shit out of you.
-  </p>
-  <p>
-    so you can get back to looking at cat pictures AMIRITE LOL (no one loves me)
-  </p>
+  <p>You have a home disaster? This app will literally help the shit out of you.</p>
+  <p>so you can get back to looking at cat pictures AMIRITE LOL (no one loves me)</p>
 
   <h3>GET SO STARTED</h3>
-  <p> What kind of service do you need?
-  <p>
-    <button ion-button color="dark" (click)="categorySelected($event,0)" >PLUMBING</button>
-  </p>
-  <p>
-    <button ion-button color="dark" (click)="categorySelected($event,1)">HEATINGVAC</button>
-  </p>
+  <p> What kind of service do you need?</p>
 
-  <p>
-    <button ion-button color="dark" (click)="categorySelected($event,2)">ELECTRICAL</button>
-  </p>
+  <div class="home-container">  
+
+    <p><button ion-button color="dark" (click)="categorySelected($event,0)" >PLUMBING</button></p>
+    <p><button ion-button color="dark" (click)="categorySelected($event,1)">HEATINGVAC</button></p>
+    <p><button ion-button color="dark" (click)="categorySelected($event,2)">ELECTRICAL</button></p>
+
+  </div>
 
 </ion-content>
