@@ -16,7 +16,6 @@ export class ActiveServicesPage {
 
   constructor(public nav: NavController, public params: NavParams, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
     this.locationInterval = setInterval(this.updateLocation.bind(this), 10000);
-    this.job = false;
   }
 
   ionViewDidLoad() {
