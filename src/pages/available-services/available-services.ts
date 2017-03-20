@@ -42,7 +42,7 @@ export class AvailableServicesPage {
       this.providerService.makeAvailable(this.servicesObject).subscribe(res => {
         console.log(res)
         this.loading.dismiss();
-        this.nav.push(ActiveServicesPage);
+        this.nav.setRoot(ActiveServicesPage);
       },
       error => {
         this.showError(error);
