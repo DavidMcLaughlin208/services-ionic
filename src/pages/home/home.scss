@@ -23,7 +23,7 @@ page-home {
     height: 100%;
     z-index: 1;
     opacity: .4;
-    background-image: url('../../assets/tools.jpg');
+    background-image: url('../assets/tools.jpg');
     background-repeat: no-repeat;
     background-position: 10% 0%;
     -ms-background-size: cover;
@@ -48,4 +48,5 @@ page-home {
   .menu-btn{
     width: 10%;
   }
+  
 }

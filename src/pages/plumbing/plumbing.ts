@@ -2,9 +2,14 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RequestService } from '../../providers/request-service';
 
+import { Geolocation } from 'ionic-native';
+import { GoogleMapComponent } from '../../components/google-map/google-map';
+
+
 @Component({
   selector: 'page-plumbing',
-  templateUrl: 'plumbing.html'
+  templateUrl: 'plumbing.html',
+   entryComponents: [GoogleMapComponent]
 })
 export class PlumbingPage {
 

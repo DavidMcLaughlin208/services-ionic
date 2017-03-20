@@ -1,0 +1,16 @@
+origin-location {
+	pointer-events: none; // pass events to map
+
+	#locator {
+		background-image: url('../../img/me.png');
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		height: 50px;
+		margin-left:-25px;
+		margin-top: -50px; // bottom of image is location
+
+
+	}
+
+}
