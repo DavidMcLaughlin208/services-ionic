@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Geolocation } from 'ionic-native';
 
+declare var google;
 
 export class Provider {
   services: string;
@@ -18,9 +20,11 @@ export class Provider {
 @Injectable()
 export class ProviderService {
   currentProvider: Provider;
+  auth_token: string;
 
   constructor(private http:Http){
     this.http = http;
+    this.auth_token = window.localStorage.getItem("authToken");
   }
 
   public getProvidersServices(){
@@ -43,5 +47,25 @@ export class ProviderService {
   private handleError(error) {
     console.error(error);
     return Observable.throw('There was an issue retrieving your information.');
+  }
+
+  // public updateLocation(){
+  //   let headers = new Headers({ 'Content-Type': 'application/json' });
+  //   let options = new RequestOptions({ headers: headers });
+  //   return Geolocation.getCurrentPosition().then((position) => {
+  //     let current_location = position;
+  //   }, error => {
+  //     return Observable.throw("Error updating your location");
+  //   })
+  // }
+
+  public sendLocation(currentLocation){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let data = { current_location: currentLocation, auth_token: this.auth_token }
+    console.log(data)
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/location", data, options)
+      .map(res => { return res.json()})
+      .catch(this.handleError);
   }
 }
