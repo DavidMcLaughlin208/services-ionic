@@ -5,7 +5,7 @@
   <author href="https://google.com/">RNATA</author>
   <content src="index.html"/>
   <access origin="*"/>
-  <icon src="resources/AppIcon.png"/>
+  <icon src="resources/icon.png"/>
   <allow-navigation href="http://ionic.local/*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
