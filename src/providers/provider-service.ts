@@ -49,16 +49,6 @@ export class ProviderService {
     return Observable.throw('There was an issue retrieving your information.');
   }
 
-  // public updateLocation(){
-  //   let headers = new Headers({ 'Content-Type': 'application/json' });
-  //   let options = new RequestOptions({ headers: headers });
-  //   return Geolocation.getCurrentPosition().then((position) => {
-  //     let current_location = position;
-  //   }, error => {
-  //     return Observable.throw("Error updating your location");
-  //   })
-  // }
-
   public sendLocation(currentLocation){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -67,5 +57,13 @@ export class ProviderService {
     return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/location", data, options)
       .map(res => { return res.json()})
       .catch(this.handleError);
+  }
+
+  public requestProviders(latLongCat){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/clients/location", latLongCat, options)
+      .map(res => res.json())
+      .catch(this.handleError)
   }
 }
