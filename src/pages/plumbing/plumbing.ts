@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { RequestService } from '../../providers/request-service';
+
 import { Geolocation } from 'ionic-native';
 import { GoogleMapComponent } from '../../components/google-map/google-map';
+
 
 @Component({
   selector: 'page-plumbing',
