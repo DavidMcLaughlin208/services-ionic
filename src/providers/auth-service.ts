@@ -48,6 +48,7 @@ export class AuthService {
 
   public register(credentials, accountType) {
     let headers = new Headers({ 'Content-Type': 'application/json' });
+    console.log(headers)
     let options = new RequestOptions({ headers: headers });
     return this.http.post("http://secret-taiga-76523.herokuapp.com/" + accountType, credentials, options)
       .map(res => res.json())

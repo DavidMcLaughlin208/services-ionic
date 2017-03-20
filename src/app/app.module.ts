@@ -14,7 +14,10 @@ import { HvacPage } from '../pages/hvac/hvac';
 import { PlumbingPage } from '../pages/plumbing/plumbing';
 import { ProviderRegisterPage } from '../pages/provider-register/provider-register';
 import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
+import { AvailableServicesPage } from '../pages/available-services/available-services';
+import { ActiveServicesPage } from '../pages/active-services/active-services';
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
+import { ProviderService } from '../providers/provider-service';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { ProviderHomePage } from '../pages/provider-home/provider-home';
     HvacPage,
     ProviderRegisterPage,
     ProviderRegisterPage2,
-    ProviderHomePage
+    ProviderHomePage,
+    AvailableServicesPage,
+    ActiveServicesPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -50,10 +55,13 @@ import { ProviderHomePage } from '../pages/provider-home/provider-home';
     HvacPage,
     ProviderRegisterPage,
     ProviderRegisterPage2,
-    ProviderHomePage
+    ProviderHomePage,
+    AvailableServicesPage,
+    ActiveServicesPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthService,
-  RequestService]
+  RequestService,
+  ProviderService]
 })
 export class AppModule {}

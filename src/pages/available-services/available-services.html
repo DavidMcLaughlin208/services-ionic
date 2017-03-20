@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Your Services</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let service of services" (click)="toggleService($event, service)">
+      <input type="checkbox"><span>{{service.toUpperCase()}}</span>
+    </ion-item>
+  </ion-list>
+  <button ion-button (click)="makeAvailable()">Go</button>
+</ion-content>
