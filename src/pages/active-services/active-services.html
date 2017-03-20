@@ -19,7 +19,7 @@
 	<div>You are on call for the following services:</div>
   <div class="google-map-wrapper">
     <google-map></google-map>
-  </div>  
+  </div>
 
   <div class="bottom request-controls">
   	<ion-row>
@@ -34,6 +34,15 @@
   			HELP is on the way
   		</ion-col>
   	</ion-row>
+    <ion-list>
+      <ion-item *ngIf="job === true">
+        <div>{{jobInfo.name}}</div>
+        <div>{{jobInfo.address}}</div>
+      </ion-item>
+      <ion-item *ngIf="job === false">
+        <button ion-button (click)="deactivate()">Cancel</button>
+      </ion-item>
+    </ion-list>
   </div>
 
 

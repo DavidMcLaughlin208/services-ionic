@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Geolocation } from 'ionic-native';
 
 declare var google;
 
@@ -30,8 +29,8 @@ export class ProviderService {
   public getProvidersServices(){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let data = { auth_token: window.localStorage.getItem("authToken")};
-    return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/info", data, options)
+    let requestData = { auth_token: window.localStorage.getItem("authToken")};
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/info", requestData, options)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -44,6 +43,14 @@ export class ProviderService {
       .catch(this.handleError);
   }
 
+  public makeUnavailable(){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/deactivate", {auth_token: window.localStorage.getItem('authToken') }, options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
   private handleError(error) {
     console.error(error);
     return Observable.throw('There was an issue retrieving your information.');
@@ -52,9 +59,9 @@ export class ProviderService {
   public sendLocation(currentLocation){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let data = { current_location: currentLocation, auth_token: this.auth_token }
-    console.log(data)
-    return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/location", data, options)
+    let locationData = { current_location: currentLocation, auth_token: this.auth_token }
+    console.log(locationData)
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/location", locationData, options)
       .map(res => { return res.json()})
       .catch(this.handleError);
   }
@@ -70,7 +77,7 @@ export class ProviderService {
   public startJob(details){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post("http://secret-taiga-76523/jobs", details, options)
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/jobs", details, options)
       .map(res => res.json())
       .catch(this.handleError);
   }
