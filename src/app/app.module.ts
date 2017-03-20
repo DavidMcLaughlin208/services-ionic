@@ -12,6 +12,8 @@ import { AuthService } from '../providers/auth-service';
 import { RequestService } from '../providers/request-service';
 import { HvacPage } from '../pages/hvac/hvac';
 import { PlumbingPage } from '../pages/plumbing/plumbing';
+import { GoogleMapComponent } from '../components/google-map/google-map';
+
 import { ProviderRegisterPage } from '../pages/provider-register/provider-register';
 import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
 import { AvailableServicesPage } from '../pages/available-services/available-services';
@@ -20,6 +22,10 @@ import { SearchPage } from '../pages/search/search';
 import { ProviderDetailsPage } from '../pages/provider-details/provider-details';
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
 import { ProviderService } from '../providers/provider-service';
+import { OriginLocationComponent } from '../components/origin-location/origin-location';
+
+
+
 
 
 @NgModule({
@@ -40,6 +46,8 @@ import { ProviderService } from '../providers/provider-service';
     AvailableServicesPage,
     ActiveServicesPage,
     SearchPage,
+    GoogleMapComponent,
+    OriginLocationComponent,
     ProviderDetailsPage
   ],
   imports: [
@@ -63,8 +71,11 @@ import { ProviderService } from '../providers/provider-service';
     AvailableServicesPage,
     ActiveServicesPage,
     SearchPage,
+    GoogleMapComponent,
+    OriginLocationComponent,
     ProviderDetailsPage
   ],
+
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthService,
   RequestService,
