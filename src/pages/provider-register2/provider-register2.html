@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar color="dark">
+  <ion-navbar>
     <ion-title>Provider Services</ion-title>
   </ion-navbar>
 
@@ -15,28 +15,28 @@
       <ion-row>
         <ion-col>
           <ion-list inset>
-            <ion-checkbox ng-model="serviceObject.services.plumbing.checked" (click)="plumbingChecked()">Plumbing</ion-checkbox>
+            <ion-checkbox ng-model="serviceObject.services.plumbing.checked" (click)="plumbingChecked()">Plumbing:</ion-checkbox>
             <span>Plumbing</span>
 
             <ion-item>
               <ion-input type="text" placeholder="$Base Rate" name="plumbingBaseRate" [(ngModel)]="serviceObject.services.plumbing.base_rate"></ion-input>
             </ion-item>
 
-            <ion-checkbox ng-model="serviceObject.services.electrical.checked" (click)="electricalChecked()">Electrical</ion-checkbox>
+            <ion-checkbox ng-model="serviceObject.services.electrical.checked" (click)="electricalChecked()">Electrical:</ion-checkbox>
             <span>Electrical</span>
 
             <ion-item>
               <ion-input type="text" placeholder="$Base Rate" name="electricalBaseRate" [(ngModel)]="serviceObject.services.electrical.base_rate"></ion-input>
             </ion-item>
 
-            <ion-checkbox ng-model="serviceObject.services.hvac.checked" (click)="hvacChecked()">HVAC</ion-checkbox>
+            <ion-checkbox ng-model="serviceObject.services.hvac.checked" (click)="hvacChecked()">HVAC:</ion-checkbox>
             <span>HVAC</span>
 
             <ion-item>
               <ion-input type="text" placeholder="$Base Rate" name="hvacBaseRate" [(ngModel)]="serviceObject.services.hvac.base_rate"></ion-input>
             </ion-item>
 
-            <ion-checkbox ng-model="serviceObject.services.miscellaneous.checked" (click)="miscellaneousChecked()">Miscellaneous</ion-checkbox>
+            <ion-checkbox ng-model="serviceObject.services.miscellaneous.checked" (click)="miscellaneousChecked()">Miscellaneous:</ion-checkbox>
             <span>Miscellaneous</span>
 
             <ion-item>
