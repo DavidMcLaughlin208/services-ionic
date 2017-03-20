@@ -19,11 +19,12 @@
   <h3>GET SO STARTED</h3>
   <p> What kind of service do you need?</p>
 
-  <div class="home-container">  
+  <div class="home-container">
 
-    <p><button ion-button color="light" (click)="categorySelected($event,0)" >Plumbing</button></p>
-    <p><button ion-button color="light" (click)="categorySelected($event,1)">HVAC</button></p>
-    <p><button ion-button color="light" (click)="categorySelected($event,2)">Electrical</button></p>
+    <p><button ion-button color="light" (click)="categorySelected('plumbing')" >Plumbing</button></p>
+    <p><button ion-button color="light" (click)="categorySelected('hvac')">HVAC</button></p>
+    <p><button ion-button color="light" (click)="categorySelected('electrical')">Electrical</button></p>
+    <p><button ion-button color="light" (click)="categorySelected('miscellaneous')">Miscellaneous</button></p>
 
   </div>
 

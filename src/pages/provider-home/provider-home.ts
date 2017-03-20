@@ -3,6 +3,7 @@ import { NavController, AlertController, NavParams, LoadingController, Loading }
 import { AuthService } from '../../providers/auth-service';
 import { AvailableServicesPage } from '../available-services/available-services';
 import { ProviderService } from '../../providers/provider-service'
+import { LoginPage } from '../login/login';
 
 
 @Component({
@@ -42,6 +43,13 @@ export class ProviderHomePage {
       buttons: ["OK"]
     });
     alert.present(prompt);
+  }
+
+  logout() {
+    this.auth.currentUser = null;
+    window.localStorage.setItem('authToken', '');
+    this.nav.push(LoginPage);
+    this.nav.setRoot(LoginPage);
   }
 
   showLoading() {

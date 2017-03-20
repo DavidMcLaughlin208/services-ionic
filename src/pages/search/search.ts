@@ -1,34 +1,29 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
-import { ProviderService } from '../../providers/provider-service';
 import { Geolocation } from 'ionic-native';
+import { ProviderService } from '../../providers/provider-service';
 
 @Component({
-  selector: 'page-active-services',
-  templateUrl: 'active-services.html'
+  selector: 'page-search',
+  templateUrl: 'search.html'
 })
-export class ActiveServicesPage {
+export class SearchPage {
+  category: string;
   loading: Loading;
-  locationInterval: any;
 
   constructor(public nav: NavController, public params: NavParams, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
-    this.locationInterval = setInterval(this.updateLocation.bind(this), 10000);
+    this.category = params['data']['category'];
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ActiveServicesPage');
+    console.log('ionViewDidLoad SearchPage');
+    this.requestProviders();
   }
-
-  ionViewDidLeave() {
-    clearInterval(this.locationInterval)
-  }
-
-  updateLocation(){
-    console.log("ENTERING INTERVAL");
-    // this.showLoading();
+  requestProviders() {
     Geolocation.getCurrentPosition().then((position) => {
-      let latLong = { lat: position['coords']['latitude'], long: position['coords']['longitude']}
-      this.providerService.sendLocation(latLong).subscribe(res => {
+      let latLongCat = { coords: {lat: position['coords']['latitude'], long: position['coords']['longitude'] }, category: this.category, auth_token: window.localStorage.getItem("authToken") }
+      console.log(latLongCat);
+      this.providerService.requestProviders(latLongCat).subscribe(res => {
         console.log(res)
         console.log("SENT LOCATION")
       },
@@ -57,6 +52,5 @@ export class ActiveServicesPage {
     });
     alert.present(prompt);
   }
-
 
 }

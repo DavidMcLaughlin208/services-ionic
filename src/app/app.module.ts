@@ -16,6 +16,7 @@ import { ProviderRegisterPage } from '../pages/provider-register/provider-regist
 import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
 import { AvailableServicesPage } from '../pages/available-services/available-services';
 import { ActiveServicesPage } from '../pages/active-services/active-services';
+import { SearchPage } from '../pages/search/search';
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
 import { ProviderService } from '../providers/provider-service';
 
@@ -36,7 +37,8 @@ import { ProviderService } from '../providers/provider-service';
     ProviderRegisterPage2,
     ProviderHomePage,
     AvailableServicesPage,
-    ActiveServicesPage
+    ActiveServicesPage,
+    SearchPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -57,7 +59,8 @@ import { ProviderService } from '../providers/provider-service';
     ProviderRegisterPage2,
     ProviderHomePage,
     AvailableServicesPage,
-    ActiveServicesPage
+    ActiveServicesPage,
+    SearchPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthService,
