@@ -2,36 +2,32 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { ProviderService } from '../../providers/provider-service';
+import { ProviderDetailsPage } from '../provider-details/provider-details';
 
 @Component({
   selector: 'page-search',
   templateUrl: 'search.html'
 })
 export class SearchPage {
-  category: string;
   loading: Loading;
+  providers: any[];
+  category: string;
 
   constructor(public nav: NavController, public params: NavParams, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+    console.log(params)
+    this.providers = params['data']['res']['providers'];
     this.category = params['data']['category'];
+    console.log(this.providers)
+  }
+
+  getProviderDetails(details){
+    this.nav.push(ProviderDetailsPage, { details })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
-    this.requestProviders();
   }
-  requestProviders() {
-    Geolocation.getCurrentPosition().then((position) => {
-      let latLongCat = { coords: {lat: position['coords']['latitude'], long: position['coords']['longitude'] }, category: this.category, auth_token: window.localStorage.getItem("authToken") }
-      console.log(latLongCat);
-      this.providerService.requestProviders(latLongCat).subscribe(res => {
-        console.log(res)
-        console.log("SENT LOCATION")
-      },
-      error => {
-        this.showError("Error updating your location")
-      })
-    })
-  }
+
 
   showLoading() {
     this.loading = this.loadingCtrl.create({

@@ -17,10 +17,12 @@ export class LoginPage {
   constructor(public nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, public navParams: NavParams) {}
 
   public createAccount() {
+    console.log("GOING TO REGISTER")
     this.nav.push(RegisterPage);
   }
 
   public login() {
+    console.log("TRYNA LOGIN")
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(res => {
       console.log(res)
@@ -43,18 +45,6 @@ export class LoginPage {
     error => {
       this.showError(error);
     });
-    // this.auth.login(this.registerCredentials).subscribe(allowed => {
-    //   if(allowed) {
-    //     setTimeout(() => {
-    //       this.loading.dismiss();
-    //       this.nav.setRoot(HomePage)
-    //     });
-    //   } else {
-    //     this.showError("Access Denied");
-    //   }
-    // }, error => {
-    //   this.showError(error);
-    // });
   }
 
   showLoading() {
