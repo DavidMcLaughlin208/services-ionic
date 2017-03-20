@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
-import { AuthService } from '../../providers/auth-service'
+import { AuthService } from '../../providers/auth-service';
+import { ProviderRegisterPage } from '../provider-register/provider-register';
 
 @Component({
   selector: 'page-register',
@@ -8,14 +9,16 @@ import { AuthService } from '../../providers/auth-service'
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = {email: '', password: ''};
+  registerCredentials = { client: {email: '', password: '', firstName: '', lastName: '', phoneNumber: '', street_address: '', city: '', state: '', zipcode: '' } };
 
   constructor(public nav: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController) {}
 
   public register() {
-    this.auth.register(this.registerCredentials).subscribe(success => {
-      if(success) {
+    console.log(this.registerCredentials)
+    this.auth.register(this.registerCredentials, "clients").subscribe(res => {
+      if(res) {
         this.createSuccess = true;
+        window.localStorage.setItem("authToken", res.authToken);
         this.showPopup("Success", "Account created.");
       } else {
         this.showPopup("Error", "Problem creating account.");
@@ -41,6 +44,10 @@ export class RegisterPage {
       }]
     })
     alert.present();
+  }
+
+  registerProvider() {
+    this.nav.push(ProviderRegisterPage);
   }
 
   ionViewDidLoad() {

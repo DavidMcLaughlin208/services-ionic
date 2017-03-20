@@ -2,5 +2,14 @@
   "name": "IonicTutorial",
   "app_id": "63241499",
   "v2": true,
-  "typescript": true
+  "typescript": true,
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }

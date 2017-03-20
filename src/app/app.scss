@@ -15,19 +15,6 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-.ios, .md {
- 
-    home-page {
- 
-      .scroll-content {
-        height: 100%
-      }
- 
-      #map {
-        width: 60vh;
-        height: 60vh;
-      }
- 
-    }
- 
-}
+@import '../components/origin-location/origin-location';
+@import '../components/google-map/google-map';
+@import '../pages/hvac/hvac';

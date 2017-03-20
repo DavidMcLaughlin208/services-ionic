@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>On Call</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+
+
+</ion-content>
+
+
+<ion-content class="hvac">
+	<div>You are on call for the following services:</div>
+  <div class="google-map-wrapper">
+    <google-map></google-map>
+  </div>  
+
+  <div class="bottom request-controls">
+  	<ion-row>
+  		<ion-col>
+  			<button [hidden]="isServiceRequested" block primary (click)="confirmService()">Request Service</button>
+  			<button [hidden]="!isServiceRequested" block secondary (click)="cancelService()">Cancel Service</button>
+
+  		</ion-col>
+  	</ion-row>
+  	<ion-row>
+  		<ion-col>
+  			HELP is on the way
+  		</ion-col>
+  	</ion-row>
+  </div>
+
+</ion-content>

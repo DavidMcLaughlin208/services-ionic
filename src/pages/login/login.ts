@@ -3,6 +3,7 @@ import { NavController, AlertController, LoadingController, Loading, NavParams }
 import { AuthService } from '../../providers/auth-service';
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
+import { ProviderHomePage} from '../provider-home/provider-home'
 
 
 @Component({
@@ -16,21 +17,32 @@ export class LoginPage {
   constructor(public nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, public navParams: NavParams) {}
 
   public createAccount() {
+    console.log("GOING TO REGISTER")
     this.nav.push(RegisterPage);
   }
 
   public login() {
+    console.log("TRYNA LOGIN")
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if(allowed) {
+    this.auth.login(this.registerCredentials).subscribe(res => {
+      console.log(res)
+      if (res.authToken) {
+        window.localStorage.setItem( 'authToken', res.authToken );
+        console.log(res);
+        console.log(window.localStorage.getItem( 'authToken'));
         setTimeout(() => {
           this.loading.dismiss();
-          this.nav.setRoot(HomePage)
+          if(res.client){
+            this.nav.setRoot(HomePage)
+          } else {
+            this.nav.setRoot(ProviderHomePage)
+          }
         });
       } else {
-        this.showError("Access Denied");
+        this.showError('Invalid Credentials');
       }
-    }, error => {
+    },
+    error => {
       this.showError(error);
     });
   }
@@ -48,7 +60,7 @@ export class LoginPage {
     });
 
     let alert = this.alertCtrl.create({
-      title: 'Fail',
+      title: 'Failure',
       subTitle: text,
       buttons: ["OK"]
     });

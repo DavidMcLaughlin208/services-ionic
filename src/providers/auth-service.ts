@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the AuthService provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 
 export class User {
   username: string;
@@ -24,29 +18,46 @@ export class User {
 export class AuthService {
   currentUser: User;
 
+  constructor(private http:Http){
+    this.http = http;
+  }
+
   public login(credentials) {
     if(credentials.email === null || credentials.password === null){
       return Observable.throw("Please insert credentials");
     } else {
-      return Observable.create(observer => {
+      // return Observable.create(observer => {
 
-        let access = (credentials.password === "pass" && credentials.email === "email")
-        this.currentUser = new User('Simon', 'saimon@devdactic.com');
-        observer.next(access);
-        observer.complete();
-      });
-    }
+      //   let access = (credentials.password === "pass" && credentials.email === "email")
+      //   this.currentUser = new User('Simon', 'saimon@devdactic.com');
+      //   observer.next(access);
+      //   observer.complete();
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      let options = new RequestOptions({ headers: headers });
+      return this.http.post("http://secret-taiga-76523.herokuapp.com/sessions", credentials, options )
+        .map(res => res.json())
+        .catch(this.handleLoginError);
+    };
   }
 
-  public register(credentials) {
-    if(credentials.email === null || credentials.password === null){
-      return Observable.throw("Please insert credentials");
-    } else {
-      return Observable.create(observer => {
-        observer.next(true);
-        observer.complete();
-      })
-    }
+
+  private handleLoginError(error) {
+    console.error(error);
+    return Observable.throw('Invalid Credentials');
+  }
+
+  public register(credentials, accountType) {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    console.log(headers)
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/" + accountType, credentials, options)
+      .map(res => res.json())
+      .catch(this.handleRegisterError);
+  }
+
+  private handleRegisterError(error) {
+    console.error(error);
+    return Observable.throw(error.json().errors.join(" "));
   }
 
   public getUserInfo() : User {
@@ -56,8 +67,10 @@ export class AuthService {
   public logout() {
     return Observable.create(observer => {
       this.currentUser = null;
+      window.localStorage.setItem( 'authToken', null )
       observer.next(true);
       observer.complete();
     })
   }
 }
+

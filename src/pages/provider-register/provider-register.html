@@ -1,0 +1,72 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Provider Registration</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="login-content" padding>
+  <button ion-button (click)='registerServices()'>TESTE Click for next page</button>
+  <div class="login-box">
+
+    <form (ngSubmit)="register()" #registerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+              <ion-input type="text" placeholder="First Name" name="first_name" [(ngModel)]="registerCredentials.provider.first_name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Last Name" name="last_name" [(ngModel)]="registerCredentials.provider.last_name"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Phone Number" name="last_name" [(ngModel)]="registerCredentials.provider.phone_number"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Email" name="email" [(ngModel)]="registerCredentials.provider.email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.provider.password" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="Street" name="street" [(ngModel)]="registerCredentials.provider.street_address" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="City" name="city" [(ngModel)]="registerCredentials.provider.city" required></ion-input>
+            </ion-item>
+
+            <div class="state-container">
+              <ion-item>
+                <ion-input type="text" placeholder="State" name="state" [(ngModel)]="registerCredentials.provider.state" required></ion-input>
+              </ion-item>
+            </div>
+
+            <div class="zip-container">
+              <ion-item>
+                <ion-input type="text" placeholder="Zipcode" name="zipcode" [(ngModel)]="registerCredentials.provider.zipcode" required></ion-input>
+              </ion-item>
+            </div>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+        </ion-col>
+      </ion-row>
+
+    </form>
+  </div>
+</ion-content>
