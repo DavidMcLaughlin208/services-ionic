@@ -32,14 +32,24 @@ export class AvailableServicesPage {
   makeAvailable(){
     this.showLoading();
     console.log(this.servicesObject)
-    this.providerService.makeAvailable(this.servicesObject).subscribe(res => {
-      console.log(res)
-      this.loading.dismiss();
-      this.nav.push(ActiveServicesPage);
-    },
-    error => {
-      this.showError(error);
-    })
+    let valid = false;
+    for(var i in this.servicesObject['services']){
+      if(this.servicesObject['services'][i] === true){
+        valid = true;
+      }
+    }
+    if(valid){
+      this.providerService.makeAvailable(this.servicesObject).subscribe(res => {
+        console.log(res)
+        this.loading.dismiss();
+        this.nav.push(ActiveServicesPage);
+      },
+      error => {
+        this.showError(error);
+      })
+    } else {
+      this.showError("Please select a service");
+    }
   }
   showLoading() {
     this.loading = this.loadingCtrl.create({

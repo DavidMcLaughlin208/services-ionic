@@ -9,11 +9,15 @@ export class ProviderDetailsPage {
   provider: any;
   constructor(public navCtrl: NavController, public params: NavParams) {
     console.log(params)
-    this.provider = params['data']['provider']
+    this.provider = params['data']['details']
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProviderDetailsPage');
+  }
+
+  confirmService(){
+
   }
 
 

@@ -66,4 +66,12 @@ export class ProviderService {
       .map(res => res.json())
       .catch(this.handleError)
   }
+
+  public startJob(details){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post("http://secret-taiga-76523/jobs", details, options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
 }
