@@ -16,7 +16,6 @@ export class ActiveServicesPage {
 
   constructor(public nav: NavController, public params: NavParams, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
     this.locationInterval = setInterval(this.updateLocation.bind(this), 10000);
-    this.job = false;
   }
 
   ionViewDidLoad() {
@@ -46,11 +45,11 @@ export class ActiveServicesPage {
       this.providerService.sendLocation(latLong).subscribe(res => {
         console.log(res)
         console.log("SENT LOCATION")
-        if(res){
-          this.job = true;
-          this.jobInfo = res;
-          this.nav.setRoot(ActiveServicesPage);
-        }
+        // if(res){
+        //   this.job = true;
+        //   this.jobInfo = res;
+        //   this.nav.setRoot(ActiveServicesPage);
+        // }
       },
       error => {
         this.showError("Error updating your location")

@@ -35,9 +35,11 @@
   		</ion-col>
   	</ion-row>
     <ion-list>
-      <ion-item *ngIf="job === true">
-        <div>{{jobInfo.name}}</div>
-        <div>{{jobInfo.address}}</div>
+      <ion-item *ngIf="job">
+        <div>Client Name: {{jobInfo.client_name}}</div>
+        <div>Job Address: {{jobInfo.client_location}}</div>
+        <div>Client Phone: {{jobInfo.phone_number}}</div>
+
       </ion-item>
       <ion-item *ngIf="job === false">
         <button ion-button (click)="deactivate()">Cancel</button>
