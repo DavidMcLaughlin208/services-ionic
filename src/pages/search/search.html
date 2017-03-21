@@ -9,17 +9,19 @@
 
 
 <ion-content padding>
+  <h2 class="search-header">Service Providers Near You</h2>
   <ion-list>
     <ion-item *ngFor="let provider of providers" (click)="getProviderDetails(provider)">
-    <span>
-      <div>Company: {{provider.company_name}}</div>
+    <div>
+      <div>Company: {{provider.company_name}} ({{category}})</div>
       <div><span>Employee: {{provider.name}}</span></div>
-      <div><span> Base Rate: ${{provider.base_rate}}</span></div>
+      <div><span> Base Rate: ${{provider.base_rate}}0</span></div>
       <span>Phone: {{provider.phone_number}}</span>
-      </span>
-      <span>
+    </div>
+    <span>
 
-      </span>
+    </span>
+    <button class="details-btn" ion-button>Details</button>
     </ion-item>
   </ion-list>
 
