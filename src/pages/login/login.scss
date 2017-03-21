@@ -2,6 +2,10 @@ $defaultBackgroundColor: #000;
 
 page-login {
 
+  * {
+    font-family: "Noto Sans";
+  }
+
   .login-content {
     background: lighten($defaultBackgroundColor, 20%);
 
@@ -21,8 +25,8 @@ page-login {
     .login-box {
       opacity: .9;
       background: #8d9fa2;
-      padding: 20px 20px 0px 20px;
-      margin: 30px 20px 0px 20px;
+      padding: 0px 0px 0px 0px;
+      margin: 30px 0px 0px 0px;
       border-radius: 10px;
     }
 
@@ -44,7 +48,7 @@ page-login {
 
     .signup-col {
       margin: 0px 16px 0px 16px;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
 
     .submit-btn {

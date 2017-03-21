@@ -2,18 +2,42 @@ $defaultBackgroundColor: #000;
 
 page-home {
 
-  .content-ios {
-    background: lighten($defaultBackgroundColor, 20%);
-  }
-
-  .scroll-content {
+  h2, h3 {
+    margin-left: 20px;
     color: #fff;
-    background: #8d9fa2;
-    margin-bottom: 260px;
-    opacity: .9;
   }
 
-  .content-ios:before {
+  .home-content {
+    background: lighten($defaultBackgroundColor, 20%);
+
+  .home-box {
+      background: #8d9fa2;
+      padding: 0px 0px 20px 0px;
+      margin-top: 20px;
+      border-radius: 10px;
+      opacity: .9;
+    }
+
+    .signup-col {
+      margin: 0px 10px 0px 10px;
+    }
+
+    button {
+      width: 100%;
+      border-radius: 10px;
+      vertical-align: middle;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    button:hover {
+      -webkit-transform: scale(1.25, 1.25);
+      transform: scale(1.25, 1.25);
+    }
+  }
+
+  .home-content:before {
     content: ' ';
     display: block;
     position: absolute;
@@ -33,20 +57,9 @@ page-home {
     background-size: cover;
   }
 
-  button{
-    text-align: center;
-    height: 300px;
-    width: 100%;
-  }
-
   .logout-link{
     margin-right: 10px;
     color: blue;
     float: right;
-  }
-
-  .menu-btn{
-    width: 10%;
-  }
-  
+  }  
 }
