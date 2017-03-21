@@ -6,19 +6,36 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="home-content" padding>
+  <div class="home-box">
 
-  <h2>Welcome to mend</h2>
+  <br><h2>Welcome to mend.</h2>
 
-  <h3>What do you need help with?</h3>
+  <h3>What do you need help with?</h3><br>
 
-  <div class="home-container">
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button block (click)="requestProviders('plumbing')" >Plumbing</button>
+      </ion-col>
+    </ion-row>
 
-    <p><button ion-button color="light" (click)="requestProviders('plumbing')" >Plumbing</button></p>
-    <p><button ion-button color="light" (click)="requestProviders('hvac')">HVAC</button></p>
-    <p><button ion-button color="light" (click)="requestProviders('electrical')">Electrical</button></p>
-    <p><button ion-button color="light" (click)="requestProviders('miscellaneous')">Miscellaneous</button></p>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button block (click)="requestProviders('hvac')">HVAC</button>
+      </ion-col>
+    </ion-row>  
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button block (click)="requestProviders('electrical')">Electrical</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button block (click)="requestProviders('miscellaneous')">Miscellaneous</button>
+      </ion-col>
+    </ion-row>
 
   </div>
-
 </ion-content>
