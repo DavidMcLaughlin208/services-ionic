@@ -2,6 +2,10 @@ $defaultBackgroundColor: #000;
 
 page-login {
 
+  * {
+    font-family: "Noto Sans";
+  }
+
   .login-content {
     background: lighten($defaultBackgroundColor, 20%);
 
