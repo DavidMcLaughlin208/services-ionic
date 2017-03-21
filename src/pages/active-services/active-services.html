@@ -1,9 +1,23 @@
 <ion-header>
+	<ion-navbar>
+   <ion-buttons start>
+    <button [hidden]="!isServiceRequested" (click)="cancelRequest()">
+    	<ion-icon name="arrow-back"></ion-icon> Cancel
+   	</button>
+   </ion-buttons>
 
-  <ion-navbar>
-    <ion-title>On Call</ion-title>
+   	<ion-title>
+    	<span [hidden]="isServiceRequested">On the way...</span>
+  		<span [hidden]="!isServiceRequested">No Service</span>
+		</ion-title>
+
+		<ion-buttons end>
+			<button (click)="maps.centerLocation()">
+				<ion-icon name="locate"></ion-icon>
+			</button>
+		</ion-buttons>
+   
   </ion-navbar>
-
 </ion-header>
 
 
@@ -15,11 +29,11 @@
 </ion-content>
 
 
-<ion-content class="hvac">
-	<div>You are on call for the following services:</div>
+<ion-content class="active-services">
   <div class="google-map-wrapper">
-    <google-map></google-map>
-  </div>
+    <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
+  </div>  
+
 
   <div class="bottom request-controls">
   	<ion-row>
@@ -29,6 +43,7 @@
 
   		</ion-col>
   	</ion-row>
+
   	<ion-row>
   		<ion-col>
   			HELP is on the way
@@ -45,6 +60,7 @@
         <button ion-button (click)="deactivate()">Cancel</button>
       </ion-item>
     </ion-list>
+
   </div>
 
 
