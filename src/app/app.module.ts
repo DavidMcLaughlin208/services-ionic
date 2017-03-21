@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { Register2Page } from '../pages/register2/register2';
 import { AuthService } from '../providers/auth-service';
 import { RequestService } from '../providers/request-service';
 import { GoogleMapComponent } from '../components/google-map/google-map';
@@ -12,6 +13,7 @@ import { ProviderRegisterPage } from '../pages/provider-register/provider-regist
 import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
 import { AvailableServicesPage } from '../pages/available-services/available-services';
 import { ActiveServicesPage } from '../pages/active-services/active-services';
+import { AwaitingServicePage } from '../pages/awaiting-service/awaiting-service';
 import { SearchPage } from '../pages/search/search';
 import { ProviderDetailsPage } from '../pages/provider-details/provider-details';
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
@@ -38,7 +40,9 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
     SearchPage,
     GoogleMapComponent,
     OriginLocationComponent,
-    ProviderDetailsPage
+    ProviderDetailsPage,
+    AwaitingServicePage,
+    Register2Page
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -57,7 +61,9 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
     SearchPage,
     GoogleMapComponent,
     OriginLocationComponent,
-    ProviderDetailsPage
+    ProviderDetailsPage,
+    AwaitingServicePage,
+    Register2Page
 
   ],
 

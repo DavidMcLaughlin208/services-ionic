@@ -25,6 +25,10 @@ export class AvailableServicesPage {
     console.log(this.services);
   }
 
+  ionViewDidLeave(){
+    this.servicesObject = { services: {'plumbing': false, 'electrical': false, 'hvac': false, 'miscellaneous': false }, auth_token: window.localStorage.getItem("authToken") };
+  }
+
   toggleService(event, service) {
     this.servicesObject.services[service] = !this.servicesObject.services[service];
   }
