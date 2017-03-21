@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Search {{category}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let provider of providers" (click)="getProviderDetails(provider)">
+    <span>
+      <div>Company: {{provider.company_name}}</div>
+      <div><span>Employee: {{provider.name}}</span></div>
+      <div><span> Base Rate: ${{provider.base_rate}}</span></div>
+      <span>Phone: {{provider.phone_number}}</span>
+      </span>
+      <span>
+
+      </span>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

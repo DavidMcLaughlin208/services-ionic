@@ -17,17 +17,18 @@ export class LoginPage {
   constructor(public nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, public navParams: NavParams) {}
 
   public createAccount() {
+    console.log("GOING TO REGISTER")
     this.nav.push(RegisterPage);
   }
 
   public login() {
+    console.log("TRYNA LOGIN")
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(res => {
       console.log(res)
       if (res.authToken) {
         window.localStorage.setItem( 'authToken', res.authToken );
-        console.log(res);
-        console.log(window.localStorage.getItem( 'authToken'));
+        window.localStorage.setItem( 'client', res.client );
         setTimeout(() => {
           this.loading.dismiss();
           if(res.client){
@@ -43,18 +44,6 @@ export class LoginPage {
     error => {
       this.showError(error);
     });
-    // this.auth.login(this.registerCredentials).subscribe(allowed => {
-    //   if(allowed) {
-    //     setTimeout(() => {
-    //       this.loading.dismiss();
-    //       this.nav.setRoot(HomePage)
-    //     });
-    //   } else {
-    //     this.showError("Access Denied");
-    //   }
-    // }, error => {
-    //   this.showError(error);
-    // });
   }
 
   showLoading() {
@@ -80,6 +69,13 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    if(window.localStorage.getItem('authToken') && window.localStorage.getItem('client')){
+      if(window.localStorage.getItem("client") == 'true'){
+        this.nav.setRoot(HomePage)
+      }else{
+        this.nav.setRoot(ProviderHomePage)
+      }
+    }
   }
 
 }

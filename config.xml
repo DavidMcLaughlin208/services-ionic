@@ -6,7 +6,7 @@
   <content src="index.html"/>
   <access origin="*"/>
   <icon src="resources/ios/icon/icon.png"/>
-  <allow-navigation href="http://ionic.local/*"/>
+  <allow-navigation href="*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
