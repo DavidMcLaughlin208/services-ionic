@@ -3,13 +3,14 @@ import { LoadingController, NavController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
 import { OriginLocationComponent } from '../origin-location/origin-location';
+import { AvailableProvidersComponent } from '../available-providers/available-providers';
 
-declare var google;
+// declare var google;
 
 @Component({
   selector: 'google-map',
   templateUrl: 'google-map.html',
-  entryComponents: [OriginLocationComponent]
+  entryComponents: [OriginLocationComponent, AvailableProvidersComponent]
 })
 
 export class GoogleMapComponent implements OnInit {
@@ -17,15 +18,27 @@ export class GoogleMapComponent implements OnInit {
   @Input() isServiceRequested: boolean;
 
   public location; map;
+  public isMapIdle: boolean;
  
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {}
 
 
   ngOnInit(){
     this.map = this.createMap();
+    this.addMapEventListeners();
+
 
     this.getLocation().subscribe(location => {
       this.centerLocation(location)
+    })
+  }
+
+  addMapEventListeners(){
+    google.maps.event.addListener(this.map, 'dragstart', ()=>{
+      this.isMapIdle = false;
+    })
+    google.maps.event.addListener(this.map, 'idle', ()=>{
+      this.isMapIdle = true;
     })
   }
 
@@ -50,7 +63,7 @@ export class GoogleMapComponent implements OnInit {
           let lat = resp.coords.latitude;
           let lng = resp.coords.longitude;
 
-          let location = new google.maps.LatLng(lat,lng);
+          let location = new google.maps.LatLng(lat, lng);
         
           observable.next(location);
       },

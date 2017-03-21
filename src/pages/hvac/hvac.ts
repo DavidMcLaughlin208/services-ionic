@@ -1,7 +1,6 @@
 import { ViewChild, ElementRef, Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
-// import { GoogleMap } from '../../components/map/map';
 import { GoogleMapComponent } from '../../components/google-map/google-map';
 
 

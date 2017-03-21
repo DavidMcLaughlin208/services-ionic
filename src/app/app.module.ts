@@ -22,6 +22,8 @@ import { ProviderDetailsPage } from '../pages/provider-details/provider-details'
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
 import { ProviderService } from '../providers/provider-service';
 import { OriginLocationComponent } from '../components/origin-location/origin-location';
+import { CarService } from '../providers/car';
+import { SimulateService} from '../providers/simulate'
 
 
 
@@ -71,11 +73,16 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
     GoogleMapComponent,
     OriginLocationComponent,
     ProviderDetailsPage
+
   ],
 
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
   AuthService,
   RequestService,
-  ProviderService]
+  ProviderService,
+  CarService,
+  SimulateService
+
+  ]
 })
 export class AppModule {}
