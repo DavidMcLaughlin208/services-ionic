@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar>
-    <button class='menu-btn' ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Home</ion-title>
     <a class="logout-link" (click)="logout()">Logout</a>
   </ion-navbar>
@@ -11,19 +8,20 @@
 
 <ion-content padding>
 
-  <h3>Homee 2.0</h3>
+  <h2>Mend</h2>
 
-  <p>You have a home disaster? This app will literally help the shit out of you.</p>
-  <p>so you can get back to looking at cat pictures AMIRITE LOL (no one loves me)</p>
+  <p>Have a home emergency?</p>
+  <p>Luk no ferther</p>
 
-  <h3>GET SO STARTED</h3>
+  <h3>Get Started:</h3>
   <p> What kind of service do you need?</p>
 
-  <div class="home-container">  
+  <div class="home-container">
 
-    <p><button ion-button color="light" (click)="categorySelected($event,0)" >Plumbing</button></p>
-    <p><button ion-button color="light" (click)="categorySelected($event,1)">HVAC</button></p>
-    <p><button ion-button color="light" (click)="categorySelected($event,2)">Electrical</button></p>
+    <p><button ion-button color="light" (click)="requestProviders('plumbing')" >Plumbing</button></p>
+    <p><button ion-button color="light" (click)="requestProviders('hvac')">HVAC</button></p>
+    <p><button ion-button color="light" (click)="requestProviders('electrical')">Electrical</button></p>
+    <p><button ion-button color="light" (click)="requestProviders('miscellaneous')">Miscellaneous</button></p>
 
   </div>
 
