@@ -23,6 +23,7 @@ import { SimulateService } from '../providers/simulate';
 import { AvailableProvidersComponent } from '../components/available-providers/available-providers';
 import { ResponsePersonComponent } from '../components/response-person/response-person';
 
+
 @NgModule({
   declarations: [
     MyApp,

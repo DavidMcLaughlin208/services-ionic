@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
@@ -6,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class SimulateService {
 
   constructor() {}
+
 
   getCars(lat, lng) {
 
@@ -26,6 +28,7 @@ export class SimulateService {
   private carIndex: number = 0;
 
   private cars1 = {
+
   		cars: [{
   			id: 1,
   			coord: {
@@ -113,6 +116,7 @@ export class SimulateService {
   			}
   		}	
   	]
+
   };
 
   private cars: Array<any> = [this.cars1, this.cars2, this.cars3, this.cars4, this.cars5]

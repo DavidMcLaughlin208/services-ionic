@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { SimulateService } from '../providers/simulate';
+
 import 'rxjs/add/operator/map';
 
 
@@ -21,7 +22,6 @@ export class CarService {
   	return Observable
   		.interval(2000)
   		.switchMap(()=> this.simulateService.getCars(lat, lng))
-  		.share();
   }
 
 }

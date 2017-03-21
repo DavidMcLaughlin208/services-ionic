@@ -7,6 +7,7 @@ import { AvailableProvidersComponent } from '../available-providers/available-pr
 import { CarService } from '../../providers/car';
 import { ResponsePersonComponent } from '../response-person/response-person'
 
+
 @Component({
   selector: 'google-map',
   templateUrl: 'google-map.html',
@@ -17,6 +18,7 @@ import { ResponsePersonComponent } from '../response-person/response-person'
 export class GoogleMapComponent implements OnInit {
 
   @Input() isServiceRequested: boolean;
+
 
   // public location; 
   public map: google.maps.Map;

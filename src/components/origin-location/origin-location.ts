@@ -16,7 +16,6 @@ export class OriginLocationComponent implements OnChanges {
 
   constructor() {
     console.log('Hello OriginLocation Component');
-
   }
 
   ngOnChanges(changes) {
@@ -54,6 +53,21 @@ export class OriginLocationComponent implements OnChanges {
   showServiceTime() {
     this.popup = new google.maps.InfoWindow({
       content: '<p>You are Here</p>'
+    });
+
+    this.popup.open(this.map, this.serviceMarker);
+
+    // google.maps.event.addListener(this.serviceMarker, 'click', () => {
+    //   this.popup.open(this.map, this.serviceMarker);
+    //   this.serviceMarker.setAnimation(null);
+    // }, 750); 
+
+    this.showServiceTime();
+  }
+
+  showPickupTime() {
+    this.popup = new google.maps.InfoWindow({
+      content: '<h5>You are Here</h5>'
     });
 
     this.popup.open(this.map, this.serviceMarker);
