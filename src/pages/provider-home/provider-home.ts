@@ -13,6 +13,7 @@ import { LoginPage } from '../login/login';
 export class ProviderHomePage {
   loading: Loading;
   services: any[];
+  provider: any;
 
   constructor(public nav: NavController, public navParams: NavParams, private auth: AuthService, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) { }
 
@@ -59,8 +60,16 @@ export class ProviderHomePage {
     this.loading.present();
   }
 
+  requestSelfInfo(){
+    this.providerService.requestProviderInfo().subscribe(res => {
+      console.log(res);
+      this.provider = res;
+    })
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProviderHomePage');
+    // this.requestSelfInfo();
   }
 
 }

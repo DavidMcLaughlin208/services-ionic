@@ -5,6 +5,7 @@ import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
+import { UnloggedHomePage } from '../pages/unlogged-home/unlogged-home';
 import { LoginPage } from '../pages/login/login';
 
 
@@ -16,7 +17,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = LoginPage;
+  rootPage: any = UnloggedHomePage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
