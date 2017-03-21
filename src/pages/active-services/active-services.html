@@ -16,7 +16,7 @@
 				<ion-icon name="locate"></ion-icon>
 			</button>
 		</ion-buttons>
-   
+
   </ion-navbar>
 </ion-header>
 
@@ -32,34 +32,18 @@
 <ion-content class="active-services">
   <div class="google-map-wrapper">
     <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
-  </div>  
+  </div>
 
+  <button ion-button (click)="deactivate()">Cancel</button>
 
   <div class="bottom request-controls">
-  	<ion-row>
-  		<ion-col>
-  			<button [hidden]="isServiceRequested" block primary (click)="confirmService()">Request Service</button>
-  			<button [hidden]="!isServiceRequested" block secondary (click)="cancelService()">Cancel Service</button>
+    <ion-row>
+      <ion-col>
+        <button [hidden]="isServiceRequested" block primary (click)="confirmService()">Request Service</button>
+        <button [hidden]="!isServiceRequested" block secondary (click)="cancelService()">Cancel Service</button>
 
-  		</ion-col>
-  	</ion-row>
-
-  	<ion-row>
-  		<ion-col>
-  			HELP is on the way
-  		</ion-col>
-  	</ion-row>
-    <ion-list>
-      <ion-item *ngIf="job">
-        <div>Client Name: {{jobInfo.client_name}}</div>
-        <div>Job Address: {{jobInfo.client_location}}</div>
-        <div>Client Phone: {{jobInfo.phone_number}}</div>
-
-      </ion-item>
-      <ion-item *ngIf="job === false">
-        <button ion-button (click)="deactivate()">Cancel</button>
-      </ion-item>
-    </ion-list>
+      </ion-col>
+    </ion-row>
 
   </div>
 
