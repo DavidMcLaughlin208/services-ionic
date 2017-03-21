@@ -2,17 +2,12 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
-import { SaladAssPage } from '../pages/salad-ass/salad-ass';
-import { ElectricalPage } from '../pages/electrical/electrical';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { AuthService } from '../providers/auth-service';
 import { RequestService } from '../providers/request-service';
-import { HvacPage } from '../pages/hvac/hvac';
-import { PlumbingPage } from '../pages/plumbing/plumbing';
 import { GoogleMapComponent } from '../components/google-map/google-map';
+
 import { ProviderRegisterPage } from '../pages/provider-register/provider-register';
 import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
 import { AvailableServicesPage } from '../pages/available-services/available-services';
@@ -27,18 +22,14 @@ import { SimulateService} from '../providers/simulate'
 
 
 
+
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ItemDetailsPage,
-    ListPage,
-    SaladAssPage,
-    ElectricalPage,
     LoginPage,
     RegisterPage,
-    PlumbingPage,
-    HvacPage,
     ProviderRegisterPage,
     ProviderRegisterPage2,
     ProviderHomePage,
@@ -56,14 +47,8 @@ import { SimulateService} from '../providers/simulate'
   entryComponents: [
     MyApp,
     HomePage,
-    ItemDetailsPage,
-    ListPage,
-    SaladAssPage,
-    ElectricalPage,
     LoginPage,
     RegisterPage,
-    PlumbingPage,
-    HvacPage,
     ProviderRegisterPage,
     ProviderRegisterPage2,
     ProviderHomePage,

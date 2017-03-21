@@ -8,10 +8,13 @@
 
 
 <ion-content padding>
+  <h2>{{provider.company_name}}</h2>
 
-  <div>{{provider.name}}</div>
-  <div>{{provider.base_rate}}</div>
-  <div>{{provider.phone_number}}</div>
+  <div>Employee: {{provider.name}}</div>
+  <div>Base Rate: ${{provider.base_rate}}0</div>
+  <div>Phone: {{provider.phone_number}}</div>
+
+  <button ion-button (click)="confirmService()">Confirm Request</button>
 
 
 

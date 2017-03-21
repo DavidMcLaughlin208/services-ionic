@@ -7,16 +7,19 @@ import 'rxjs/add/operator/map';
 export class User {
   username: string;
   email: string;
+  client: boolean;
 
-  constructor(username: string, email: string) {
+  constructor(username: string, email: string, client: boolean) {
     this.username = username;
     this.email = email;
+    this.client = client;
   }
 }
 
 @Injectable()
 export class AuthService {
   currentUser: User;
+
 
   constructor(private http:Http){
     this.http = http;
@@ -26,12 +29,6 @@ export class AuthService {
     if(credentials.email === null || credentials.password === null){
       return Observable.throw("Please insert credentials");
     } else {
-      // return Observable.create(observer => {
-
-      //   let access = (credentials.password === "pass" && credentials.email === "email")
-      //   this.currentUser = new User('Simon', 'saimon@devdactic.com');
-      //   observer.next(access);
-      //   observer.complete();
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post("http://secret-taiga-76523.herokuapp.com/sessions", credentials, options )
@@ -68,6 +65,7 @@ export class AuthService {
     return Observable.create(observer => {
       this.currentUser = null;
       window.localStorage.setItem( 'authToken', null )
+      window.localStorage.setItem( 'client', null )
       observer.next(true);
       observer.complete();
     })
