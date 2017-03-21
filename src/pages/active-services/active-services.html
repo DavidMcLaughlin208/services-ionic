@@ -7,8 +7,8 @@
    </ion-buttons>
 
    	<ion-title>
-    	<span [hidden]="isServiceRequested">On the way...</span>
-  		<span [hidden]="!isServiceRequested">No Service</span>
+    	<span [hidden]="isServiceRequested">No Work</span>
+  		<span [hidden]="!isServiceRequested">Work</span>
 		</ion-title>
 
 		<ion-buttons end>
@@ -19,14 +19,6 @@
    
   </ion-navbar>
 </ion-header>
-
-
-<ion-content padding>
-
-
-
-
-</ion-content>
 
 
 <ion-content class="active-services">
@@ -49,6 +41,7 @@
   			HELP is on the way
   		</ion-col>
   	</ion-row>
+
     <ion-list>
       <ion-item *ngIf="job">
         <div>Client Name: {{jobInfo.client_name}}</div>

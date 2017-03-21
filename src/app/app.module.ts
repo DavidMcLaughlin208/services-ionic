@@ -8,7 +8,6 @@ import { Register2Page } from '../pages/register2/register2';
 import { AuthService } from '../providers/auth-service';
 import { RequestService } from '../providers/request-service';
 import { GoogleMapComponent } from '../components/google-map/google-map';
-
 import { ProviderRegisterPage } from '../pages/provider-register/provider-register';
 import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
 import { AvailableServicesPage } from '../pages/available-services/available-services';
@@ -19,11 +18,10 @@ import { ProviderDetailsPage } from '../pages/provider-details/provider-details'
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
 import { ProviderService } from '../providers/provider-service';
 import { OriginLocationComponent } from '../components/origin-location/origin-location';
-// import { CarService } from '../providers/car';
-// import { SimulateService} from '../providers/simulate'
-
-
-
+import { CarService } from '../providers/car';
+import { SimulateService } from '../providers/simulate';
+import { AvailableProvidersComponent } from '../components/available-providers/available-providers';
+import { ResponsePersonComponent } from '../components/response-person/response-person';
 
 
 @NgModule({
@@ -41,8 +39,11 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
     GoogleMapComponent,
     OriginLocationComponent,
     ProviderDetailsPage,
+    AvailableProvidersComponent,
+    ResponsePersonComponent,
     AwaitingServicePage,
     Register2Page
+
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -62,6 +63,8 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
     GoogleMapComponent,
     OriginLocationComponent,
     ProviderDetailsPage,
+    AvailableProvidersComponent,
+    ResponsePersonComponent,
     AwaitingServicePage,
     Register2Page
 
@@ -71,8 +74,8 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
   AuthService,
   RequestService,
   ProviderService,
-  //CarService,
-  //SimulateService
+  CarService,
+  SimulateService
 
   ]
 })
