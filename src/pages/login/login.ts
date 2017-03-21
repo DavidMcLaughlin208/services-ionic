@@ -67,15 +67,15 @@ export class LoginPage {
   }
 
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-    if(window.localStorage.getItem('authToken') && window.localStorage.getItem('client')){
-      if(window.localStorage.getItem("client") == 'true'){
-        this.nav.setRoot(HomePage)
-      }else{
-        this.nav.setRoot(ProviderHomePage)
-      }
-    }
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad LoginPage');
+  //   if(window.localStorage.getItem('authToken') && window.localStorage.getItem('client')){
+  //     if(window.localStorage.getItem("client") == 'true'){
+  //       this.nav.setRoot(HomePage)
+  //     }else{
+  //       this.nav.setRoot(ProviderHomePage)
+  //     }
+  //   }
+  // }
 
 }

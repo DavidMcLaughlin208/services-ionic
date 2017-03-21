@@ -4,6 +4,7 @@ import { ProviderService } from '../../providers/provider-service';
 import { Geolocation } from 'ionic-native';
 import { GoogleMapComponent } from '../../components/google-map/google-map';
 import { ProviderHomePage } from '../provider-home/provider-home';
+import { ProviderJobPage } from '../provider-job/provider-job';
 
 
 @Component({
@@ -59,11 +60,9 @@ export class ActiveServicesPage {
       this.providerService.sendLocation(latLong).subscribe(res => {
         console.log(res)
         console.log("SENT LOCATION")
-        // if(res){
-        //   this.job = true;
-        //   this.jobInfo = res;
-        //   this.nav.setRoot(ActiveServicesPage);
-        // }
+        if(res){
+          this.nav.push(ProviderJobPage, {jobInfo: res});
+        }
       },
       error => {
         this.showError("Error updating your location")
