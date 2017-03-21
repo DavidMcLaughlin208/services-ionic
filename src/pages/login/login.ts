@@ -12,7 +12,7 @@ import { ProviderHomePage} from '../provider-home/provider-home'
 })
 export class LoginPage {
   loading: Loading;
-  registerCredentials = {email:'',password:''};
+  registerCredentials = {phone_number:'',password:''};
 
   constructor(public nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, public navParams: NavParams) {}
 
