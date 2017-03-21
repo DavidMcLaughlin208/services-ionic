@@ -30,32 +30,8 @@
             </ion-item>
 
             <ion-item>
-              <input type="email" placeholder="Email" name="email" [(ngModel)]="registerCredentials.client.email">
+              <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.client.password" required></ion-input>
             </ion-item>
-
-            <ion-item>
-              <input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.client.password" required>
-            </ion-item>
-
-            <ion-item>
-              <input type="text" placeholder="Street" name="street" [(ngModel)]="registerCredentials.client.street_address" required>
-            </ion-item>
-
-            <ion-item>
-              <input type="text" placeholder="City" name="city" [(ngModel)]="registerCredentials.client.city" required>
-            </ion-item>
-
-            <div class="state-container">
-              <ion-item>
-                <input type="text" placeholder="State" name="state" [(ngModel)]="registerCredentials.client.state" required>
-              </ion-item>
-            </div>
-
-            <div class="zip-container">
-              <ion-item>
-                <input type="text" placeholder="Zipcode" name="zipcode" [(ngModel)]="registerCredentials.client.zipcode" required>
-              </ion-item>
-            </div>
 
           </ion-list>
         </ion-col>
@@ -63,7 +39,7 @@
 
       <ion-row>
         <ion-col class="signup-col">
-          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Next</button>
         </ion-col>
       </ion-row>
 

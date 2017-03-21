@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   public login(credentials) {
-    if(credentials.email === null || credentials.password === null){
+    if(credentials.phone === null || credentials.password === null){
       return Observable.throw("Please insert credentials");
     } else {
       let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -52,8 +52,22 @@ export class AuthService {
       .catch(this.handleRegisterError);
   }
 
+  public updateAddress(address){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/clients/address", address, options)
+      .map(res => res.json())
+      .catch(this.handleAddressError)
+  }
+
   private handleRegisterError(error) {
     console.error(error);
+    return Observable.throw(error.json().errors.join(" "));
+  }
+
+  private handleAddressError(error) {
+    console.error(error);
+    console.error("handleAddressError");
     return Observable.throw(error.json().errors.join(" "));
   }
 
