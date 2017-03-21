@@ -3,6 +3,7 @@ import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { ProviderRegisterPage } from '../provider-register/provider-register';
 import { Register2Page } from '../register2/register2';
+import { Geocoder, GeocoderRequest, Geolocation } from 'ionic-native';
 
 @Component({
   selector: 'page-register',
@@ -40,6 +41,14 @@ export class RegisterPage {
         handler: data => {
           if(this.createSuccess) {
             this.nav.push(Register2Page);
+            // Geolocation.getCurrentPosition().then((position) => {
+            //   console.log(position);
+            //   let req: GeocoderRequest = { position: {lat: position.coords.latitude, lng: position.coords.longitude} }
+            //   let geocoder = new google.maps.Geocoder;
+            //   geocoder.geocode(req).then((results)=>{
+            //     this.nav.push(Register2Page, { results });
+            //   })
+            // })
           }
         }
       }]
