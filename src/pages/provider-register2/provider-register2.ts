@@ -23,6 +23,8 @@ export class ProviderRegisterPage2 {
       if(res) {
         this.createSuccess = true;
         this.showPopup("Success", "Your services have been logged.");
+        this.nav.push(ProviderHomePage);
+        this.nav.setRoot(ProviderHomePage);
 
       } else {
         this.showPopup("Error", "Problem creating account.");
@@ -42,8 +44,7 @@ export class ProviderRegisterPage2 {
         text: 'OK',
         handler: data => {
           if(this.createSuccess) {
-            this.nav.push(ProviderHomePage);
-            this.nav.setRoot(ProviderHomePage);
+
 
           }
         }
