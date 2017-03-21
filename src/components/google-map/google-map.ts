@@ -3,14 +3,12 @@ import { LoadingController, NavController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
 import { OriginLocationComponent } from '../origin-location/origin-location';
-import { AvailableProvidersComponent } from '../available-providers/available-providers';
-
-// declare var google;
+// import { AvailableProvidersComponent } from '../available-providers/available-providers';
 
 @Component({
   selector: 'google-map',
   templateUrl: 'google-map.html',
-  entryComponents: [OriginLocationComponent, AvailableProvidersComponent]
+  entryComponents: [OriginLocationComponent]//, AvailableProvidersComponent]
 })
 
 export class GoogleMapComponent implements OnInit {
@@ -19,7 +17,7 @@ export class GoogleMapComponent implements OnInit {
 
   public location; map;
   public isMapIdle: boolean;
- 
+
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {}
 
 
@@ -43,7 +41,7 @@ export class GoogleMapComponent implements OnInit {
   }
 
   getLocation() {
-     
+
     let loading = this.loadingCtrl.create({
       content: 'Locating...',
       spinner: 'bubbles'
@@ -64,13 +62,13 @@ export class GoogleMapComponent implements OnInit {
           let lng = resp.coords.longitude;
 
           let location = new google.maps.LatLng(lat, lng);
-        
+
           observable.next(location);
       },
         (err) => {
           console.log('Geolocation err: ' + err);
           loading.dismiss();
-        }) 
+        })
     })
     return locationObs;
   }
@@ -81,7 +79,7 @@ export class GoogleMapComponent implements OnInit {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true
-    }  
+    }
 
     let mapEl = document.getElementById('map');
     let map = new google.maps.Map(mapEl, mapOptions);

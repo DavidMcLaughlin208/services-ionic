@@ -17,8 +17,8 @@ import { ProviderDetailsPage } from '../pages/provider-details/provider-details'
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
 import { ProviderService } from '../providers/provider-service';
 import { OriginLocationComponent } from '../components/origin-location/origin-location';
-import { CarService } from '../providers/car';
-import { SimulateService} from '../providers/simulate'
+// import { CarService } from '../providers/car';
+// import { SimulateService} from '../providers/simulate'
 
 
 
@@ -65,8 +65,8 @@ import { SimulateService} from '../providers/simulate'
   AuthService,
   RequestService,
   ProviderService,
-  CarService,
-  SimulateService
+  //CarService,
+  //SimulateService
 
   ]
 })

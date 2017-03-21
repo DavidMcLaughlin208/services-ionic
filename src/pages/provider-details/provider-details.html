@@ -2,12 +2,17 @@
 
   <ion-navbar>
     <ion-title>Provider Details</ion-title>
+    <ion-buttons start>
+      <button [hidden]="!isServiceRequested">
+       <ion-icon name="navigate"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="provider-details">
   <h2>{{provider.company_name}}</h2>
 
   <div>Employee: {{provider.name}}</div>
@@ -16,6 +21,23 @@
 
   <button ion-button (click)="confirmService()">Confirm Request</button>
 
+  <div class="google-map-wrapper">
+    <google-map></google-map>
+  </div>
 
+  <div class="bottom request-controls">
+    <ion-row>
+      <ion-col>
+        <button [hidden]="isServiceRequested" block primary (click)="confirmService()">Request Service</button>
+        <button [hidden]="!isServiceRequested" block secondary (click)="cancelService()">Cancel Service</button>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        HELP is on the way
+      </ion-col>
+    </ion-row>
+  </div>
 
 </ion-content>

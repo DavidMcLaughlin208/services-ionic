@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { ProviderService } from '../../providers/provider-service';
+import { GoogleMapComponent } from '../../components/google-map/google-map';
 
 @Component({
   selector: 'page-provider-details',
