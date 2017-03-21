@@ -37,6 +37,7 @@ export class Register2Page {
       if(res) {
         this.createSuccess = true;
         this.showPopup("Success", "Account created.");
+        this.nav.setRoot(HomePage);
       } else {
         this.showPopup("Error", "Problem creating account.");
       }
@@ -56,7 +57,7 @@ export class Register2Page {
         text: 'OK',
         handler: data => {
           if(this.createSuccess) {
-            this.nav.setRoot(HomePage);
+            // this.nav.setRoot(HomePage);
           }
         }
       }]
