@@ -12,7 +12,7 @@ import { ProviderHomePage} from '../provider-home/provider-home'
 })
 export class LoginPage {
   loading: Loading;
-  registerCredentials = {email:'',password:''};
+  registerCredentials = {phone_number:'',password:''};
 
   constructor(public nav: NavController, private auth: AuthService, private alertCtrl: AlertController, private loadingCtrl: LoadingController, public navParams: NavParams) {}
 
@@ -28,8 +28,7 @@ export class LoginPage {
       console.log(res)
       if (res.authToken) {
         window.localStorage.setItem( 'authToken', res.authToken );
-        console.log(res);
-        console.log(window.localStorage.getItem( 'authToken'));
+        window.localStorage.setItem( 'client', res.client );
         setTimeout(() => {
           this.loading.dismiss();
           if(res.client){
@@ -70,6 +69,13 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    if(window.localStorage.getItem('authToken') && window.localStorage.getItem('client')){
+      if(window.localStorage.getItem("client") == 'true'){
+        this.nav.setRoot(HomePage)
+      }else{
+        this.nav.setRoot(ProviderHomePage)
+      }
+    }
   }
 
 }

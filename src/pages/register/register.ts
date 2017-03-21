@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import { ProviderRegisterPage } from '../provider-register/provider-register';
+import { Register2Page } from '../register2/register2';
 
 @Component({
   selector: 'page-register',
@@ -9,7 +10,7 @@ import { ProviderRegisterPage } from '../provider-register/provider-register';
 })
 export class RegisterPage {
   createSuccess = false;
-  registerCredentials = { client: {email: '', password: '', firstName: '', lastName: '', phoneNumber: '', street_address: '', city: '', state: '', zipcode: '' } };
+  registerCredentials = { client: {password: '', first_name: '', last_name: '', phone_number: ''} };
 
   constructor(public nav: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController) {}
 
@@ -38,7 +39,7 @@ export class RegisterPage {
         text: 'OK',
         handler: data => {
           if(this.createSuccess) {
-            this.nav.popToRoot();
+            this.nav.push(Register2Page);
           }
         }
       }]

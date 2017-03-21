@@ -1,24 +1,20 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      HVAC
-    </ion-title>
+    <ion-title>HVAC</ion-title>
 
     <ion-buttons start>
-    	<button [hidden="!isPickupRequested"]>
+    	<button [hidden]="!isServiceRequested">
     	 <ion-icon name="navigate"></ion-icon>
     	</button>
     </ion-buttons>
-
   </ion-navbar>
-
 </ion-header>
- 
+
 <ion-content class="hvac">
 
   <div class="google-map-wrapper">
     <google-map></google-map>
-  </div>  
+  </div>
 
   <div class="bottom request-controls">
   	<ion-row>

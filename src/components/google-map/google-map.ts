@@ -3,34 +3,54 @@ import { LoadingController, NavController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
 import { OriginLocationComponent } from '../origin-location/origin-location';
-
-declare var google;
+import { AvailableProvidersComponent } from '../available-providers/available-providers';
+import { CarService } from '../../providers/car';
+import { ResponsePersonComponent } from '../response-person/response-person'
 
 @Component({
   selector: 'google-map',
   templateUrl: 'google-map.html',
-  entryComponents: [OriginLocationComponent]
+  entryComponents: [OriginLocationComponent, AvailableProvidersComponent, ResponsePersonComponent],
+  providers: [CarService]
 })
 
 export class GoogleMapComponent implements OnInit {
 
   @Input() isServiceRequested: boolean;
 
-  public location; map;
+  // public location; 
+  public map: google.maps.Map;
+  public isMapIdle: boolean;
+  public currentLocation: google.maps.LatLng;
  
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {}
 
 
   ngOnInit(){
     this.map = this.createMap();
+    this.addMapEventListeners();
 
     this.getLocation().subscribe(location => {
       this.centerLocation(location)
     })
   }
 
+  updateServiceLocation(location) {
+    this.currentLocation = location;
+    this.centerLocation(location);
+  }
+
+  addMapEventListeners(){
+    google.maps.event.addListener(this.map, 'dragstart', ()=>{
+      this.isMapIdle = false;
+    })
+    google.maps.event.addListener(this.map, 'idle', ()=>{
+      this.isMapIdle = true;
+    })
+  }
+
   getLocation() {
-     
+
     let loading = this.loadingCtrl.create({
       content: 'Locating...',
       spinner: 'bubbles'
@@ -50,14 +70,14 @@ export class GoogleMapComponent implements OnInit {
           let lat = resp.coords.latitude;
           let lng = resp.coords.longitude;
 
-          let location = new google.maps.LatLng(lat,lng);
-        
+          let location = new google.maps.LatLng(lat, lng);
+
           observable.next(location);
       },
         (err) => {
           console.log('Geolocation err: ' + err);
           loading.dismiss();
-        }) 
+        })
     })
     return locationObs;
   }
@@ -68,7 +88,7 @@ export class GoogleMapComponent implements OnInit {
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true
-    }  
+    }
 
     let mapEl = document.getElementById('map');
     let map = new google.maps.Map(mapEl, mapOptions);

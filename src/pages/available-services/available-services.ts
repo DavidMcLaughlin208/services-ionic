@@ -25,6 +25,10 @@ export class AvailableServicesPage {
     console.log(this.services);
   }
 
+  ionViewDidLeave(){
+    this.servicesObject = { services: {'plumbing': false, 'electrical': false, 'hvac': false, 'miscellaneous': false }, auth_token: window.localStorage.getItem("authToken") };
+  }
+
   toggleService(event, service) {
     this.servicesObject.services[service] = !this.servicesObject.services[service];
   }
@@ -32,14 +36,24 @@ export class AvailableServicesPage {
   makeAvailable(){
     this.showLoading();
     console.log(this.servicesObject)
-    this.providerService.makeAvailable(this.servicesObject).subscribe(res => {
-      console.log(res)
-      this.loading.dismiss();
-      this.nav.push(ActiveServicesPage);
-    },
-    error => {
-      this.showError(error);
-    })
+    let valid = false;
+    for(var i in this.servicesObject['services']){
+      if(this.servicesObject['services'][i] === true){
+        valid = true;
+      }
+    }
+    if(valid){
+      this.providerService.makeAvailable(this.servicesObject).subscribe(res => {
+        console.log(res)
+        this.loading.dismiss();
+        this.nav.setRoot(ActiveServicesPage);
+      },
+      error => {
+        this.showError(error);
+      })
+    } else {
+      this.showError("Please select a service");
+    }
   }
   showLoading() {
     this.loading = this.loadingCtrl.create({

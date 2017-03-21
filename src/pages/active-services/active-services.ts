@@ -2,17 +2,34 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import { ProviderService } from '../../providers/provider-service';
 import { Geolocation } from 'ionic-native';
+import { GoogleMapComponent } from '../../components/google-map/google-map';
+import { ProviderHomePage } from '../provider-home/provider-home';
+
 
 @Component({
   selector: 'page-active-services',
-  templateUrl: 'active-services.html'
+  templateUrl: 'active-services.html',
+  entryComponents: [GoogleMapComponent]
 })
 export class ActiveServicesPage {
   loading: Loading;
   locationInterval: any;
+  public isServiceRequested: boolean;
+  job: boolean;
+  jobInfo: any;
+
 
   constructor(public nav: NavController, public params: NavParams, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
     this.locationInterval = setInterval(this.updateLocation.bind(this), 10000);
+    this.isServiceRequested = false;
+  }
+
+  confirmService(){
+    this.isServiceRequested = true;
+  }
+
+  cancelService(){
+    this.isServiceRequested = false;
   }
 
   ionViewDidLoad() {
@@ -23,6 +40,17 @@ export class ActiveServicesPage {
     clearInterval(this.locationInterval)
   }
 
+  deactivate() {
+    this.providerService.makeUnavailable().subscribe(res => {
+      console.log(res);
+      clearInterval(this.locationInterval)
+      this.nav.setRoot(ProviderHomePage);
+    },
+    error => {
+      this.showError("There was an error canceling your availability.")
+    })
+  }
+
   updateLocation(){
     console.log("ENTERING INTERVAL");
     // this.showLoading();
@@ -31,6 +59,11 @@ export class ActiveServicesPage {
       this.providerService.sendLocation(latLong).subscribe(res => {
         console.log(res)
         console.log("SENT LOCATION")
+        // if(res){
+        //   this.job = true;
+        //   this.jobInfo = res;
+        //   this.nav.setRoot(ActiveServicesPage);
+        // }
       },
       error => {
         this.showError("Error updating your location")

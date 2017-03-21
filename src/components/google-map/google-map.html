@@ -1,11 +1,23 @@
-<!--
-  Generated template for the GoogleMap component.
-
-  See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
-  for more info on Angular 2 Components.
--->
 
 <div class="wrapper">
 	<div id="map"></div>
-	<origin-location></origin-location>
-</div> 
+
+	<origin-location 
+		[map]="map" 
+		[isPinSet]="isMapIdle"
+		>		
+	</origin-location>
+
+	<available-providers
+		[map]="map"
+		[isServiceRequested]="isServiceRequested">
+	</available-providers>
+
+	<response-person
+		[map]="map"
+		[isServiceRequested]="isServiceRequested"
+		[serviceLocation]="currentLocation">
+	</response-person>
+	
+</div>
+
