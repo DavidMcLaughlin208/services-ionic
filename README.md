@@ -22,9 +22,15 @@ sudo npm install -g ionic
 
 
 ——
+
+
 npm install @types/googlemaps --save -dev
 
 ionic platform add iOS
+
+------------------------------------------
+
+ionic serve    <- starts browser emu
 
 
 ionic platform add android
