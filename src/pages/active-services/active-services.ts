@@ -45,11 +45,11 @@ export class ActiveServicesPage {
       this.providerService.sendLocation(latLong).subscribe(res => {
         console.log(res)
         console.log("SENT LOCATION")
-        if(res){
-          this.job = true;
-          this.jobInfo = res;
-          this.nav.setRoot(ActiveServicesPage);
-        }
+        // if(res){
+        //   this.job = true;
+        //   this.jobInfo = res;
+        //   this.nav.setRoot(ActiveServicesPage);
+        // }
       },
       error => {
         this.showError("Error updating your location")
