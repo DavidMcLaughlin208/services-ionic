@@ -19,7 +19,9 @@ export class ProviderRegisterPage {
       if(res) {
         this.createSuccess = true;
         window.localStorage.setItem("authToken", res.authToken);
+        window.localStorage.setItem("client", res.client);
         this.showPopup("Success", "Account created. Please add more information about your business");
+        this.nav.push(ProviderRegisterPage2);
       } else {
         this.showPopup("Error", "Problem creating account.");
       }
@@ -38,7 +40,7 @@ export class ProviderRegisterPage {
         text: 'OK',
         handler: data => {
           if(this.createSuccess) {
-            this.nav.push(ProviderRegisterPage2);
+
           }
         }
       }]

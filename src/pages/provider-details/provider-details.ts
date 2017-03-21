@@ -3,10 +3,12 @@ import { NavController, NavParams, LoadingController, Loading, AlertController }
 import { Geolocation } from 'ionic-native';
 import { ProviderService } from '../../providers/provider-service';
 import { GoogleMapComponent } from '../../components/google-map/google-map';
+import { AwaitingServicePage } from '../awaiting-service/awaiting-service';
 
 @Component({
   selector: 'page-provider-details',
-  templateUrl: 'provider-details.html'
+  templateUrl: 'provider-details.html',
+  entryComponents: [GoogleMapComponent]
 })
 export class ProviderDetailsPage {
   provider: any;
@@ -25,6 +27,7 @@ export class ProviderDetailsPage {
     let details = { job: { provider_service_id: this.provider.id , auth_token: window.localStorage.getItem("authToken") } }
     this.providerService.startJob(details).subscribe(res => {
       console.log(res)
+      this.nav.push(AwaitingServicePage, {provider: this.provider});
     },
     error => {
       this.showError("Error starting your job.")
