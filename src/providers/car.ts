@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
-import { SimulateService } from '../providers/simulate';
-
+// import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { SimulateService } from '../providers/simulate/simulate';
 import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class CarService {
 
-	public simulateService: SimulateService;
+	public simulate: any;
 
   constructor() {
-  	this.simulateService = new SimulateService();
+  	this.simulate = new SimulateService();
   }
 
-  findServicePerson(serviceLocation){
-
-  }
-
-  getCars(lat, lng) {
+  getCars(lat, lng){
   	return Observable
   		.interval(2000)
-  		.switchMap(()=> this.simulateService.getCars(lat, lng))
+  		.switchMap(()=> this.simulate.getCars(lat, lng))
+  		.share();
   }
 
 }
