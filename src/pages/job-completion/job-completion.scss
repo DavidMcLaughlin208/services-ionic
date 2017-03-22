@@ -1,3 +1,64 @@
+$defaultBackgroundColor: #000;
+
 page-job-completion {
 
+  h2, p {
+  	padding: 20px;
+    margin-bottom: 0px;
+    color: #fff;
+  }
+
+  .item-cover {
+  	padding:20px;
+  }
+
+  .finish-content {
+    background: lighten($defaultBackgroundColor, 20%);
+
+  .finish-box {
+      background: #8d9fa2;
+      padding: 0px 0px 20px 0px;
+      margin: 20px 0px 10px 0px;
+      border-radius: 10px;
+      opacity: .9;
+    }
+
+    .signup-col {
+      margin: 0px 10px 0px 10px;
+    }
+
+    button {
+      width: 100%;
+      border-radius: 10px;
+      vertical-align: middle;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    button:hover {
+      -webkit-transform: scale(1.25, 1.25);
+      transform: scale(1.25, 1.25);
+    }
+  }
+
+  .finish-content:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: .4;
+    background-image: url('../assets/tools.jpg');
+    background-repeat: no-repeat;
+    background-position: 10% 0%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
 }
