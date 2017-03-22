@@ -22,7 +22,7 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
 import { CarService } from '../providers/car';
 import { SimulateService} from '../providers/simulate';
 import { AvailableProvidersComponent } from '../components/available-providers/available-providers';
-
+import { ResponseProviderComponent } from '../components/response-provider/response-provider';
 
 
 
@@ -44,7 +44,8 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     ProviderDetailsPage,
     AwaitingServicePage,
     Register2Page,
-    AvailableProvidersComponent
+    AvailableProvidersComponent,
+    ResponseProviderComponent
 
   ],
   imports: [
@@ -67,7 +68,8 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     ProviderDetailsPage,
     AwaitingServicePage,
     Register2Page,
-    AvailableProvidersComponent
+    AvailableProvidersComponent,
+    ResponseProviderComponent
 
   ],
 

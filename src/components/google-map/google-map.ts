@@ -35,7 +35,7 @@ export class GoogleMapComponent implements OnInit {
     })
   }
 
-  updatedPickupLocation(location){
+  updateServiceLocation(location){
     this.currentLocation = location;
     this.centerLocation(location);
   }

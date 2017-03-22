@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { CarService } from '../../providers/car';
+import { CarService } from '../../providers/car';
 
 @Component({
   selector: 'available-providers',
@@ -13,7 +13,7 @@ export class AvailableProvidersComponent implements OnInit {
 
   public carMarkers: Array<google.maps.Marker>;
 
-  constructor() {
+  constructor(public carService: CarService) {
     this.carMarkers = [];
   }
 
