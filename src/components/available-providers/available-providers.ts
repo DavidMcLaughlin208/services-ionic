@@ -3,8 +3,13 @@ import { CarService } from '../../providers/car';
 
 @Component({
   selector: 'available-providers',
+<<<<<<< HEAD
   templateUrl: 'available-providers.html',
   providers: []
+=======
+  templateUrl: 'available-providers.html'
+  // providers: []
+>>>>>>> jtmunoz-maps
   //CarService
 })
 export class AvailableProvidersComponent implements OnInit {

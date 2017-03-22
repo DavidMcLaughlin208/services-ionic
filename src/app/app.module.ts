@@ -9,7 +9,6 @@ import { Register2Page } from '../pages/register2/register2';
 import { AuthService } from '../providers/auth-service';
 import { RequestService } from '../providers/request-service';
 import { GoogleMapComponent } from '../components/google-map/google-map';
-
 import { ProviderRegisterPage } from '../pages/provider-register/provider-register';
 import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-register2';
 import { AvailableServicesPage } from '../pages/available-services/available-services';
@@ -25,7 +24,7 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
 import { CarService } from '../providers/car';
 import { SimulateService} from '../providers/simulate';
 import { AvailableProvidersComponent } from '../components/available-providers/available-providers';
-
+import { ResponseProviderComponent } from '../components/response-provider/response-provider';
 
 
 
@@ -50,7 +49,9 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     AvailableProvidersComponent,
     ProviderJobPage,
     UnloggedHomePage,
-    JobCompletionPage
+    JobCompletionPage,
+    ResponseProviderComponent
+
 
   ],
   imports: [
@@ -76,8 +77,8 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     AvailableProvidersComponent,
     ProviderJobPage,
     UnloggedHomePage,
-    JobCompletionPage
-
+    JobCompletionPage,
+    ResponseProviderComponent
 
   ],
 
