@@ -13,7 +13,8 @@
       <ion-item *ngFor="let provider of providers" (click)="getProviderDetails(provider)">
 
       <div>
-        <div>Company: {{provider.company_name}} ({{category}})</div>
+        <div>Company: {{provider.company_name}}</div>
+        <div>Category: {{category}}</div>
         <div><span>Employee: {{provider.name}}</span></div>
         <div><span> Base Rate: ${{provider.base_rate}}0</span></div>
         <span>Phone: {{provider.phone_number}}</span>

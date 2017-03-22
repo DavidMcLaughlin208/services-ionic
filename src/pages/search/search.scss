@@ -2,26 +2,26 @@ $defaultBackgroundColor: #000;
 
 page-search {
 
-  .search-header {
-    margin: 10px;
-    text-align: center;
-  }
-
-  .details-btn {
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  h2 {
-    padding-top: 10px;
-    text-align: center;
-    color: #fff;
-  }
-
   .search-content {
     background: lighten($defaultBackgroundColor, 20%);
-
-  .search-box {
+  
+    .search-header {
+      margin: 10px;
+      text-align: center;
+    }
+  
+    .details-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    h2 {
+      padding-top: 10px;
+      text-align: center;
+      color: #fff;
+    }
+  
+    .search-box {
       background: #8d9fa2;
       padding: 0px 20px 20px 20px;
       margin-top: 20px;

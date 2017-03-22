@@ -11,15 +11,18 @@
 
 
 <ion-content class="provider-details" padding>
-  <div class="details-box">
+  <div class="details-border">
+    <div class="details-box">
 
-    <h2>{{provider.company_name}}</h2>
+      <h2>{{provider.company_name}}</h2><hr><br>
+  
+      <div>Employee: {{provider.name}}</div><br>
+      <div>Base Rate: ${{provider.base_rate}}0</div><br>
+      <div>Phone: {{provider.phone_number}}</div><br>
 
-    <div>Employee: {{provider.name}}</div>
-    <div>Base Rate: ${{provider.base_rate}}0</div>
-    <div>Phone: {{provider.phone_number}}</div>
+    </div>
   </div>
 
-    <button ion-button (click)="confirmService()">Confirm Request</button>
+  <button ion-button (click)="confirmService()">Confirm Request</button>
 
 </ion-content>
