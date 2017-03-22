@@ -1,44 +1,56 @@
-// import { Component, Input, OnInit } from '@angular/core';
-// import { CarService } from '../../providers/car/car';
+import { Component, Input, OnInit } from '@angular/core';
+import { CarService } from '../../providers/car';
 
-// @Component({
-//   selector: 'available-providers',
-//   templateUrl: 'available-providers.html'
-// })
-// export class AvailableProvidersComponent implements OnInit {
-//   @Input() map: google.maps.Map;
-//   @Input() isServiceRequested: boolean;
+@Component({
+  selector: 'available-providers',
+  templateUrl: 'available-providers.html',
+  providers: [CarService]
+})
+export class AvailableProvidersComponent implements OnInit {
+  @Input() map: google.maps.Map;
+  @Input() isServiceRequested: boolean;
 
-//   // public carService: CarService;
-//   constructor(public carService: any) {
-//     // this.carService = new CarService()
-//   }
+  public carMarkers: Array<google.maps.Marker>;
 
-//   ngOnInit(){
-//     this.fetchAndRefreshCars();
-//   }
+  constructor(public carService: CarService) {
+    this.carMarkers = [];
+  }
 
-//   addCarMarker(){
-//     let carMarker = new google.maps.Marker({
-//       map: the
-//     })
+  ngOnInit(){
+    this.fetchAndRefreshCars();
+  }
 
-//   }
+  addCarMarker(car){
+    let carMarker = new google.maps.Marker({
+      map: this.map,
+      position: new google.maps.LatLng(car.coord.lat, car.coord.lng),
+      icon: '../../img/car.png'
+    })
 
-//   updateCarMarker(){
-//     for (var i=0; numOfCars=this.carMarkers.length; i++){
+    carMarker.set('id', car.id);
 
-//     }
-//   }
+    this.carMarkers.push(carMarker);
+  }
 
-//   fetchAndRefreshCars(){
-//     this.carService.getCars(9,9)
-//       .subscribe(carsData => {
-//         if (!this.isServiceRequested){
-//           (<any>carsData).cars.forEach( car => {
-//             this.updateCarMarker(car)
-//           })
-//         }
-//       })
-//   }
-// }
+  updateCarMarker(car){
+    for (var i=0, numOfCars=this.carMarkers.length; i<numOfCars; i++){
+    	if (this.carMarkers[i].get('id') === car.id) {
+    		this.carMarkers[i].setPosition(new google.maps.LatLng(car.coord.lat, car.coord.lng));
+    		return;
+    	}
+    }
+
+    this.addCarMarker(car);
+  }
+
+  fetchAndRefreshCars(){
+    this.carService.getCars(9,9)
+      .subscribe(carsData => {
+        if (!this.isServiceRequested){
+          (<any>carsData).cars.forEach( car => {
+            this.updateCarMarker(car)
+          })
+        }
+      })
+  }
+}
