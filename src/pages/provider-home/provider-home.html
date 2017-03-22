@@ -1,25 +1,37 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Home</ion-title>
     <a class="logout-link" (click)="logout()">Logout</a>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content class="home-content" padding>
+  <div class="home-box">
 
-<ion-content padding>
-  <span></span>
-  <div *ngIf="providerInfo">
-    <h2>{{providerInfo.companyName}}</h2>
-    <p>{{providerInfo.fullName}}</p>
+    <span></span>
+    <div *ngIf="providerInfo">
+      <h2>{{providerInfo.companyName}}</h2>
+      <p>{{providerInfo.fullName}}</p>
+    </div>
+
+    <h2>Toggle Availability</h2>
+
+      <ion-row>
+        <ion-col class="signup-col">
+          <ion-list *ngIf="services">
+            <ion-item class="list-item" *ngFor="let service of services">
+            <ion-label>{{service.category.toUpperCase()}}</ion-label>
+              <ion-toggle checked (click)="toggleService($event, service.category)"></ion-toggle>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button block (click)="makeAvailable()">Make Me Available</button>
+      </ion-col>
+    </ion-row>
+
   </div>
-  <h2>Toggle Availability</h2>
-  <ion-list *ngIf="services">
-    <ion-item *ngFor="let service of services">
-      <input type="checkbox" checked (click)="toggleService($event, service.category)"><span>{{service.category.toUpperCase()}}</span>
-    </ion-item>
-  </ion-list>
-  <button ion-button (click)="makeAvailable()">Make Me Available</button>
-
 </ion-content>
