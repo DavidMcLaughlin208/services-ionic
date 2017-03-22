@@ -13,8 +13,11 @@ export class CarService {
   	this.simulate = new SimulateService();
   }
 
+  getServiceCar() {
+    return this.simulate.getServiceCar()
+  }
   findServiceCar(serviceLocation){
-
+    return this.simulate.findServiceCar(serviceLocation)
   }
 
   getCars(lat, lng){

@@ -8,6 +8,7 @@ import { CarService } from '../../providers/car';
 export class OriginLocationComponent implements OnChanges {
   @Input() isPinSet: boolean;
   @Input() map: google.maps.Map;
+  @Input() isServiceRequested: boolean;
   @Output() updatedServiceLocation: EventEmitter<google.maps.LatLng> = new EventEmitter();
 
   private serviceMarker: google.maps.Marker;
@@ -19,10 +20,13 @@ export class OriginLocationComponent implements OnChanges {
   }
 
   ngOnChanges(changes) {
-    if (this.isPinSet){
-      this.showServiceMarker();
-    } else {
-      this.removeServiceMarker();
+
+    if (!this.isServiceRequested) {
+      if (this.isPinSet){
+        this.showServiceMarker();
+      } else {
+        this.removeServiceMarker();
+      }
     }
   }
 
