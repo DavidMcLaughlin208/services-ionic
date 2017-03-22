@@ -7,10 +7,16 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="provider-job">
+  <h2>Client: {{jobInfo.client_name}}</h2>
+  <p>Job Type: {{jobInfo.job_type}}</p>
+  <p>Client Phone: {{jobInfo.phone}}</p>
+  <h4>Job Address:</h4>
+  <h4>{{jobInfo.client_location}}</h4>
 
-  <div class="google-map-wrapper">
+
+<!--   <div class="google-map-wrapper">
     <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
-  </div>
+  </div> -->
 
 </ion-content>

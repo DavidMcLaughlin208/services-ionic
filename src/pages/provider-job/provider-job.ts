@@ -13,6 +13,7 @@ import { ProviderHomePage } from '../provider-home/provider-home';
 export class ProviderJobPage {
   jobInfo: any;
   loading: Loading;
+  public isServiceRequested: boolean;
 
   constructor(public nav: NavController, public params: NavParams, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
     console.log(params);
