@@ -31,10 +31,11 @@
       <div>Phone: {{provider.phone_number}}</div><br>
       <div>Distance: {{provider.distance}}</div><br>
       <div>Rating: {{provider.rating}} / 5</div>
-</div>
-      <div class="google-map-wrapper">
-        <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
       
+    </div>
+
+    <div class="google-map-wrapper">
+      <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
     </div>
   </div>
 

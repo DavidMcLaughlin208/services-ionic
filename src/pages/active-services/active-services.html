@@ -15,29 +15,15 @@
 				<ion-icon name="locate"></ion-icon>
 			</button>
 		</ion-buttons>
-
   </ion-navbar>
 </ion-header>
 
-
-<ion-content padding>
-
-
-
-
-</ion-content>
-
-
-<ion-content class="active-services">
-  <div class="google-map-wrapper">
-    <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
+<ion-content class="active-services" padding>
+  <div class="map-box">
+    <div class="google-map-wrapper">
+      <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
+    </div>
   </div>
 
   <button ion-button (click)="deactivate()">Cancel</button>
-
-  <div class="bottom request-controls">
-
-  </div>
-
-
 </ion-content>
