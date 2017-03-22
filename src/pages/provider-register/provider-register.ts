@@ -16,8 +16,9 @@ export class ProviderRegisterPage {
   public register() {
     console.log(this.registerCredentials)
     this.auth.register(this.registerCredentials, "providers").subscribe(res => {
-      if(res) {
+      if(res.authToken) {
         this.createSuccess = true;
+        // this.auth.authToken = res.authToken;
         window.localStorage.setItem("authToken", res.authToken);
         window.localStorage.setItem("client", res.client);
         this.showPopup("Success", "Account created. Please add more information about your business");

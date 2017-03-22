@@ -23,10 +23,12 @@ export class HomePage {
 
   public logout() {
     this.auth.currentUser = null;
-    window.localStorage.setItem('authToken', '');
-    window.localStorage.setItem('client', '');
-    this.nav.push(UnloggedHomePage);
-    this.nav.setRoot(UnloggedHomePage);
+    this.auth.logout().subscribe(res => {
+      this.nav.push(UnloggedHomePage);
+      this.nav.setRoot(UnloggedHomePage);
+    })
+    // window.localStorage.setItem('authToken', '');
+    // window.localStorage.setItem('client', '');
   }
 
   requestProviders(category) {
@@ -64,6 +66,10 @@ export class HomePage {
       buttons: ["OK"]
     });
     alert.present(prompt);
+  }
+
+  ionicViewDidLoad(){
+    console.log(window.localStorage.getItem("authToken"))
   }
 
 

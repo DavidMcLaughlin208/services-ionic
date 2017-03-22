@@ -1,9 +1,9 @@
 
-    
+
 <ion-content class="provider-details">
 <ion-header>
   <ion-navbar>
-    
+
    <ion-buttons start>
     <button [hidden]="!isServiceRequested" (click)="cancelRequest()">
       <ion-icon name="arrow-back"></ion-icon> Cancel
@@ -25,18 +25,20 @@
 
 
 
-  
+
 
 <ion-content class="provider-details" padding>
   <div class="details-border">
     <div class="details-box">
 
       <h2>{{provider.company_name}}</h2><hr><br>
-  
+
       <div>Employee: {{provider.name}}</div><br>
       <div>Base Rate: ${{provider.base_rate}}0</div><br>
       <div>Phone: {{provider.phone_number}}</div><br>
-      
+      <div>Distance: {{provider.distance}}</div><br>
+      <div>Rating: {{provider.rating}} / 5</div>
+
       <div class="google-map-wrapper">
         <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
       </div>
@@ -44,8 +46,6 @@
     </div>
   </div>
 
-
-  <button ion-button (click)="confirmService()">Confirm Request</button>
 
   <button ion-button (click)="confirmService()">Confirm Request</button>
 

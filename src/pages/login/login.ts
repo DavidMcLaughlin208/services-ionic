@@ -27,6 +27,7 @@ export class LoginPage {
     this.auth.login(this.registerCredentials).subscribe(res => {
       console.log(res)
       if (res.authToken) {
+        // this.auth.authToken = res.authToken;
         window.localStorage.setItem( 'authToken', res.authToken );
         window.localStorage.setItem( 'client', res.client );
         setTimeout(() => {

@@ -7,8 +7,7 @@
    </ion-buttons>
 
    	<ion-title>
-    	<span [hidden]="isServiceRequested">On the way...</span>
-  		<span [hidden]="!isServiceRequested">No Service</span>
+      <span>{{title}}</span>
 		</ion-title>
 
 		<ion-buttons end>
@@ -37,13 +36,6 @@
   <button ion-button (click)="deactivate()">Cancel</button>
 
   <div class="bottom request-controls">
-    <ion-row>
-      <ion-col>
-        <button [hidden]="isServiceRequested" block primary (click)="confirmService()">Request Service</button>
-        <button [hidden]="!isServiceRequested" block secondary (click)="cancelService()">Cancel Service</button>
-
-      </ion-col>
-    </ion-row>
 
   </div>
 

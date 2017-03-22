@@ -20,6 +20,7 @@ export class RegisterPage {
     this.auth.register(this.registerCredentials, "clients").subscribe(res => {
       if(res) {
         this.createSuccess = true;
+        // this.auth.authToken = res.authToken;
         window.localStorage.setItem("authToken", res.authToken);
         window.localStorage.setItem("client", res.client);
         this.showPopup("Success", "Account created.");
