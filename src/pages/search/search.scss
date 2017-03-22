@@ -1,16 +1,58 @@
+$defaultBackgroundColor: #000;
+
 page-search {
-  .search-header {
-    margin: 10 auto;
-    text-align: center;
+
+  .search-content {
+    background: lighten($defaultBackgroundColor, 20%);
+  
+    .search-header {
+      margin: 10px;
+      text-align: center;
+    }
+  
+    .details-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    h2 {
+      padding-top: 10px;
+      text-align: center;
+      color: #fff;
+    }
+  
+    .search-box {
+      background: #8d9fa2;
+      padding: 0px 20px 20px 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+      opacity: .9;
+    }
   }
 
-  .details-btn {
+  .search-content:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    margin: auto;
-
+    height: 100%;
+    z-index: 1;
+    opacity: .4;
+    background-image: url('../assets/tools.jpg');
+    background-repeat: no-repeat;
+    background-position: 10% 0%;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
   }
 
-  * {
-
-  }
+  .logout-link{
+    margin-right: 10px;
+    color: blue;
+    float: right;
+  }  
 }

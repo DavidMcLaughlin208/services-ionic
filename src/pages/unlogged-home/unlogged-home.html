@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Login or Signup!</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="login-content" padding>
+
+  <ion-row class="logo-row">
+    <ion-col></ion-col>
+    <ion-col width-67>
+      <img class="team-logo" src="assets/logo.jpg"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+  <div class="login-box">
+
+  <ion-row>
+    <ion-col class="button-col">
+      <button ion-button class='register-btn' block (click)="login()">Login</button>
+    </ion-col>
+  </ion-row>
+
+    <p>--OR--</p>
+
+  <ion-row>
+    <ion-col class="button-col">
+      <button ion-button class='register-btn' block (click)="registerUser()">Create New User Account</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="button-col">
+      <button ion-button class='register-btn' block (click)="registerProvider()">Create New Provider Account</button>
+    </ion-col>
+  </ion-row>
+
+  </div>
+</ion-content>

@@ -39,7 +39,9 @@ export class ProviderService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/activate", services, options)
-      .map(res => res.json())
+      .map(res => {
+        console.log(res)
+        res})
       .catch(this.handleError);
   }
 
@@ -78,6 +80,14 @@ export class ProviderService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post("http://secret-taiga-76523.herokuapp.com/jobs", details, options)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  public requestProviderInfo(){
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/profile", {auth_token: window.localStorage.getItem("authToken")}, options)
       .map(res => res.json())
       .catch(this.handleError);
   }

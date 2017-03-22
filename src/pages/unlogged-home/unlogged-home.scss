@@ -1,49 +1,42 @@
 $defaultBackgroundColor: #000;
 
-page-register {
+page-unlogged-home {
+
+  * {
+    font-family: "Noto Sans";
+  }
 
   .login-content {
     background: lighten($defaultBackgroundColor, 20%);
 
-    .login-box {
-      background: #8d9fa2;
-      padding: 0px 0px 0px 0px;
-      margin-top: 20px;
-      border-radius: 10px;
-      opacity: .9;
+    p {
+      color: #fff;
+      text-align: center;
     }
 
-    input {
-      border: none;
-    }
-
-    ion-item {
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .signup-col {
-      margin: 0px 10px 0px 10px;
+    .logo-row {
+      padding-top: 50px;
       padding-bottom: 20px;
     }
 
-    .button-ios {
-      display: block;
-      margin: 0 auto;
+    .team-logo {
+      border: 4px #8d9fa2;
     }
 
-    .state-container {
-      display: relative;
-      float: left;
-      width: 56%;
+    .login-box {
+      opacity: .9;
+      background: #8d9fa2;
+      padding: 10px 0px 14px 0px;
+      margin: 30px 0px 0px 0px;
+      border-radius: 10px;
     }
 
-    .zip-container {
-      float: right;
-      width: 40%;
+    .button-col {
+      margin: 0px 16px 0px 16px;
+      padding-bottom: 0px;
     }
 
-    button {
+    .register-btn {
       background: #387ef5;
       border-radius: 10px;
       color: #fff;
@@ -53,9 +46,14 @@ page-register {
       transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
-    button:hover {
+    .register-btn:hover {
       -webkit-transform: scale(1.25, 1.25);
       transform: scale(1.25, 1.25);
+    }
+
+    img {
+      border-radius: 10%;
+      opacity: .7;
     }
   }
 

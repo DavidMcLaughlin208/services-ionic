@@ -2,7 +2,6 @@
     
 <ion-content class="provider-details">
 <ion-header>
-
   <ion-navbar>
     
    <ion-buttons start>
@@ -21,22 +20,32 @@
         <ion-icon name="locate"></ion-icon>
       </button>
     </ion-buttons>
-
   </ion-navbar>
 </ion-header>
 
 
-<ion-content class="active-services">
-  <div class="google-map-wrapper">
-    <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
+
+  
+
+<ion-content class="provider-details" padding>
+  <div class="details-border">
+    <div class="details-box">
+
+      <h2>{{provider.company_name}}</h2><hr><br>
+  
+      <div>Employee: {{provider.name}}</div><br>
+      <div>Base Rate: ${{provider.base_rate}}0</div><br>
+      <div>Phone: {{provider.phone_number}}</div><br>
+      
+      <div class="google-map-wrapper">
+        <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
+      </div>
+
+    </div>
   </div>
 
-  <div>Employee: {{provider.name}}</div>
-  <div>Base Rate: ${{provider.base_rate}}0</div>
-  <div>Phone: {{provider.phone_number}}</div>
-  <button ion-button (click)="deactivate()">Cancel</button>
 
-
+  <button ion-button (click)="confirmService()">Confirm Request</button>
 
   <button ion-button (click)="confirmService()">Confirm Request</button>
 

@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { UnloggedHomePage } from '../pages/unlogged-home/unlogged-home';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { Register2Page } from '../pages/register2/register2';
@@ -14,6 +15,7 @@ import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-regi
 import { AvailableServicesPage } from '../pages/available-services/available-services';
 import { ActiveServicesPage } from '../pages/active-services/active-services';
 import { AwaitingServicePage } from '../pages/awaiting-service/awaiting-service';
+import { ProviderJobPage } from '../pages/provider-job/provider-job';
 import { SearchPage } from '../pages/search/search';
 import { ProviderDetailsPage } from '../pages/provider-details/provider-details';
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
@@ -44,7 +46,9 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     ProviderDetailsPage,
     AwaitingServicePage,
     Register2Page,
-    AvailableProvidersComponent
+    AvailableProvidersComponent,
+    ProviderJobPage,
+    UnloggedHomePage
 
   ],
   imports: [
@@ -67,7 +71,10 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     ProviderDetailsPage,
     AwaitingServicePage,
     Register2Page,
-    AvailableProvidersComponent
+    AvailableProvidersComponent,
+    ProviderJobPage,
+    UnloggedHomePage
+
 
   ],
 
