@@ -1,5 +1,4 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Provider Details</ion-title>
     <ion-buttons start>
@@ -8,18 +7,19 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content class="provider-details">
-  <h2>{{provider.company_name}}</h2>
+<ion-content class="provider-details" padding>
+  <div class="details-box">
 
-  <div>Employee: {{provider.name}}</div>
-  <div>Base Rate: ${{provider.base_rate}}0</div>
-  <div>Phone: {{provider.phone_number}}</div>
+    <h2>{{provider.company_name}}</h2>
 
-  <button ion-button (click)="confirmService()">Confirm Request</button>
+    <div>Employee: {{provider.name}}</div>
+    <div>Base Rate: ${{provider.base_rate}}0</div>
+    <div>Phone: {{provider.phone_number}}</div>
+  </div>
 
+    <button ion-button (click)="confirmService()">Confirm Request</button>
 
 </ion-content>

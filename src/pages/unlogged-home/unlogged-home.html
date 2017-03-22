@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content class="login-content" padding>
+
   <ion-row class="logo-row">
     <ion-col></ion-col>
     <ion-col width-67>
@@ -14,13 +15,28 @@
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
+
   <div class="login-box">
-    <button ion-button class='register-btn' block clear (click)="login()">Login</button>
 
-    <br><br>
+  <ion-row>
+    <ion-col class="button-col">
+      <button ion-button class='register-btn' block (click)="login()">Login</button>
+    </ion-col>
+  </ion-row>
 
-    <button ion-button class='register-btn' block clear (click)="registerUser()">Create New User Account</button>
-    <button ion-button class='register-btn' block clear (click)="registerProvider()">Create New Provider Account</button>
+    <p>--OR--</p>
+
+  <ion-row>
+    <ion-col class="button-col">
+      <button ion-button class='register-btn' block (click)="registerUser()">Create New User Account</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col class="button-col">
+      <button ion-button class='register-btn' block (click)="registerProvider()">Create New Provider Account</button>
+    </ion-col>
+  </ion-row>
 
   </div>
 </ion-content>

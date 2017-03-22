@@ -13,10 +13,13 @@ page-register {
       opacity: .9;
     }
 
+    input {
+      border: none;
+    }
+
     ion-item {
       border-radius: 10px;
       margin-bottom: 10px;
-
     }
 
     .signup-col {
