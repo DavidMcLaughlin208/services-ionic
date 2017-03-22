@@ -1,6 +1,3 @@
-
-
-<ion-content class="provider-details">
 <ion-header>
   <ion-navbar>
 
@@ -23,14 +20,10 @@
   </ion-navbar>
 </ion-header>
 
-
-
-
-
 <ion-content class="provider-details" padding>
   <div class="details-border">
     <div class="details-box">
-
+      
       <h2>{{provider.company_name}}</h2><hr><br>
 
       <div>Employee: {{provider.name}}</div><br>
@@ -38,16 +31,13 @@
       <div>Phone: {{provider.phone_number}}</div><br>
       <div>Distance: {{provider.distance}}</div><br>
       <div>Rating: {{provider.rating}} / 5</div>
-
+</div>
       <div class="google-map-wrapper">
         <google-map #maps [isServiceRequested]="isServiceRequested"></google-map>
-      </div>
-
+      
     </div>
   </div>
 
-
   <button ion-button (click)="confirmService()">Confirm Request</button>
 
-</ion-content>
 </ion-content>
