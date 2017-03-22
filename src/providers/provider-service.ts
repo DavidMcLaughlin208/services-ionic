@@ -23,7 +23,6 @@ export class ProviderService {
 
   constructor(private http:Http){
     this.http = http;
-    this.auth_token = window.localStorage.getItem("authToken");
   }
 
   public getProvidersServices(){
@@ -61,7 +60,7 @@ export class ProviderService {
   public sendLocation(currentLocation){
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let locationData = { current_location: currentLocation, auth_token: this.auth_token }
+    let locationData = { current_location: currentLocation, auth_token: window.localStorage.getItem("authToken") }
     console.log(locationData)
     return this.http.post("http://secret-taiga-76523.herokuapp.com/providers/location", locationData, options)
       .map(res => { return res.json()})

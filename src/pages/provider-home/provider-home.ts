@@ -21,6 +21,10 @@ export class ProviderHomePage {
   constructor(public nav: NavController, public navParams: NavParams, private auth: AuthService, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
   }
 
+  ionicViewDidLoad(){
+    console.log(window.localStorage.getItem("authToken"))
+  }
+
   makeMeAvailable(){
     this.showLoading();
     this.providerService.getProvidersServices().subscribe(res => {
@@ -56,10 +60,12 @@ export class ProviderHomePage {
 
   public logout() {
     this.auth.currentUser = null;
-    window.localStorage.setItem('authToken', '');
-    window.localStorage.setItem('client', '');
-    this.nav.push(UnloggedHomePage);
-    this.nav.setRoot(UnloggedHomePage);
+    this.auth.logout().subscribe(res => {
+      this.nav.push(UnloggedHomePage);
+      this.nav.setRoot(UnloggedHomePage);
+    })
+    // window.localStorage.setItem('authToken', '');
+    // window.localStorage.setItem('client', '');
   }
 
   showLoading() {

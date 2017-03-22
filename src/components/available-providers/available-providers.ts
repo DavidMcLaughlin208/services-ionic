@@ -25,7 +25,7 @@ export class AvailableProvidersComponent implements OnInit {
     let carMarker = new google.maps.Marker({
       map: this.map,
       position: new google.maps.LatLng(car.coord.lat, car.coord.lng),
-      icon: '../../img/car.png'
+      icon: '../assets/img/car.png'
     })
 
     carMarker.set('id', car.id);
