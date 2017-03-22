@@ -9,7 +9,7 @@ import { ProviderRegisterPage2 } from '../provider-register2/provider-register2'
 })
 export class ProviderRegisterPage {
   createSuccess = false;
-  registerCredentials = { provider: {email: '', password: '', firstName: '', lastName: '', phoneNumber: '', street_address: '', city: '', state: '', zipcode: '' } };
+  registerCredentials = { provider: {email: '', password: '', firstName: '', lastName: '', phoneNumber: '', street_address: '', city: '', state: '', zipcode: '', company_name: '' } };
 
   constructor(public nav: NavController, public navParams: NavParams, private auth: AuthService, private alertCtrl: AlertController) {}
 
