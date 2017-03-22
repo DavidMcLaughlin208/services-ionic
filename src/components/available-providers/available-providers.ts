@@ -4,7 +4,8 @@ import { CarService } from '../../providers/car';
 @Component({
   selector: 'available-providers',
   templateUrl: 'available-providers.html',
-  providers: [CarService]
+  providers: []
+  //CarService
 })
 export class AvailableProvidersComponent implements OnInit {
   @Input() map: google.maps.Map;
@@ -17,7 +18,7 @@ export class AvailableProvidersComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.fetchAndRefreshCars();
+    // this.fetchAndRefreshCars();
   }
 
   addCarMarker(car){

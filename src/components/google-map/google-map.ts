@@ -3,12 +3,12 @@ import { LoadingController, NavController } from 'ionic-angular';
 import { Geolocation } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
 import { OriginLocationComponent } from '../origin-location/origin-location';
-import { AvailableProvidersComponent } from '../available-providers/available-providers';
+// import { AvailableProvidersComponent } from '../available-providers/available-providers';
 
 @Component({
   selector: 'google-map',
   templateUrl: 'google-map.html',
-  entryComponents: [OriginLocationComponent, AvailableProvidersComponent]
+  entryComponents: [OriginLocationComponent]
 })
 
 export class GoogleMapComponent implements OnInit {
