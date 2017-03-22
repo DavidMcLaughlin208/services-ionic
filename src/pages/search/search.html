@@ -1,7 +1,6 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Search {{category}}</ion-title>
-    <a class="logout-link" (click)="logout()">Logout</a>
   </ion-navbar>
 </ion-header>
 
@@ -9,8 +8,12 @@
   <div class="search-box">
     <h2 class="search-header">Service Providers Near You:</h2>
 
-    <ion-list>
-      <ion-item *ngFor="let provider of providers" (click)="getProviderDetails(provider)">
+
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <ion-list>
+          <ion-item class="list-item" *ngFor="let provider of providers" (click)="getProviderDetails(provider)">
 
       <div>
         <div>Company: {{provider.company_name}}</div>
@@ -23,10 +26,15 @@
         <span>{{this.ratings(provider)}}</span></div>
       </div>
 
-      <button ion-button block class="details-btn">Details</button>
 
-      </ion-item>
-    </ion-list>
+          
+
+          <button ion-button block class="details-btn">Details</button>
+
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
 
   </div>
 </ion-content>
