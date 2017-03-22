@@ -3,8 +3,14 @@ $defaultBackgroundColor: #000;
 page-provider-details {
 
   h2 {
+    font-family: "Noto Sans";
     padding-top: 10px;
     text-align: center;
+  }
+
+  p {
+    margin-top: -10px;
+    font-family: "Noto Sans";
   }
 
   .provider-details {
@@ -27,6 +33,7 @@ page-provider-details {
     }
 
     button {
+      font-family: "Noto Sans";
       margin: 5%;
       width: 90%;
       border-radius: 10px;

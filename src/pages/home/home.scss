@@ -3,6 +3,7 @@ $defaultBackgroundColor: #000;
 page-home {
 
   h2, h3 {
+    font-family: "Noto Sans";
     margin-left: 20px;
     color: #fff;
   }
@@ -23,6 +24,7 @@ page-home {
     }
 
     button {
+      font-family: "Noto Sans";
       width: 100%;
       border-radius: 10px;
       vertical-align: middle;
