@@ -19,9 +19,8 @@
       <ion-row>
         <ion-col class="signup-col">
           <ion-list *ngIf="services">
-            <ion-item class="list-item" *ngFor="let service of services">
-              <ion-label>{{service.category.toUpperCase()}}</ion-label>
-              <ion-toggle checked (click)="toggleService($event, service.category)"></ion-toggle>
+            <ion-item *ngFor="let service of services">
+              <input type="checkbox" checked (click)="toggleService($event, service.category)"><span>{{service.category.toUpperCase()}}</span>
             </ion-item>
           </ion-list>
         </ion-col>
