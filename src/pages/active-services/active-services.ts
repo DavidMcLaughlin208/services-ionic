@@ -51,6 +51,7 @@ export class ActiveServicesPage {
 
   ionViewDidLeave() {
     clearInterval(this.locationInterval)
+    clearInterval(this.titleInterval)
   }
 
   deactivate() {
