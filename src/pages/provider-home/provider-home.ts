@@ -3,7 +3,7 @@ import { NavController, AlertController, NavParams, LoadingController, Loading }
 import { AuthService } from '../../providers/auth-service';
 import { AvailableServicesPage } from '../available-services/available-services';
 import { ProviderService } from '../../providers/provider-service'
-import { LoginPage } from '../login/login';
+import { UnloggedHomePage } from '../unlogged-home/unlogged-home';
 
 
 @Component({
@@ -46,11 +46,12 @@ export class ProviderHomePage {
     alert.present(prompt);
   }
 
-  logout() {
+  public logout() {
     this.auth.currentUser = null;
     window.localStorage.setItem('authToken', '');
-    this.nav.push(LoginPage);
-    this.nav.setRoot(LoginPage);
+    window.localStorage.setItem('client', '');
+    this.nav.push(UnloggedHomePage);
+    this.nav.setRoot(UnloggedHomePage);
   }
 
   showLoading() {

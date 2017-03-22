@@ -86,7 +86,7 @@ export class ProviderService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     return this.http.post("http://secret-taiga-76523.herokupp.com/provider/info", {auth_token: window.localStorage.getItem("authToken")}, options)
-    .map(res => res.json())
-    .catch(this.handleError);
+      .map(res => res.json())
+      .catch(this.handleError);
   }
 }

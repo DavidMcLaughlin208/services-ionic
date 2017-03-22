@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import { SearchPage } from '../search/search';
-import { LoginPage } from '../login/login';
+import { UnloggedHomePage } from '../unlogged-home/unlogged-home';
 import { AuthService } from '../../providers/auth-service';
 import { Geolocation } from 'ionic-native';
 import { ProviderService } from '../../providers/provider-service';
@@ -25,8 +25,9 @@ export class HomePage {
   public logout() {
     this.auth.currentUser = null;
     window.localStorage.setItem('authToken', '');
-    this.nav.push(LoginPage);
-    this.nav.setRoot(LoginPage);
+    window.localStorage.setItem('client', '');
+    this.nav.push(UnloggedHomePage);
+    this.nav.setRoot(UnloggedHomePage);
   }
 
   requestProviders(category) {
