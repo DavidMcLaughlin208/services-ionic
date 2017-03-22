@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import { NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import { SearchPage } from '../search/search';
 import { UnloggedHomePage } from '../unlogged-home/unlogged-home';
