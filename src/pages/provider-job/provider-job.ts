@@ -24,6 +24,10 @@ export class ProviderJobPage {
     console.log('ionViewDidLoad ProviderJobPage');
   }
 
+  goHome(){
+    this.nav.push(ProviderHomePage)
+  }
+
   showLoading() {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
