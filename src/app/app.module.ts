@@ -15,6 +15,7 @@ import { ProviderRegisterPage2 } from '../pages/provider-register2/provider-regi
 import { AvailableServicesPage } from '../pages/available-services/available-services';
 import { ActiveServicesPage } from '../pages/active-services/active-services';
 import { AwaitingServicePage } from '../pages/awaiting-service/awaiting-service';
+import { JobCompletionPage } from '../pages/job-completion/job-completion';
 import { ProviderJobPage } from '../pages/provider-job/provider-job';
 import { SearchPage } from '../pages/search/search';
 import { ProviderDetailsPage } from '../pages/provider-details/provider-details';
@@ -48,7 +49,8 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     Register2Page,
     AvailableProvidersComponent,
     ProviderJobPage,
-    UnloggedHomePage
+    UnloggedHomePage,
+    JobCompletionPage
 
   ],
   imports: [
@@ -73,7 +75,8 @@ import { AvailableProvidersComponent } from '../components/available-providers/a
     Register2Page,
     AvailableProvidersComponent,
     ProviderJobPage,
-    UnloggedHomePage
+    UnloggedHomePage,
+    JobCompletionPage
 
 
   ],

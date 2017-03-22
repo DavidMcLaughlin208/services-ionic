@@ -29,6 +29,14 @@ export class SearchPage {
     this.getProviderDistance();
   }
 
+  ratings(provider){
+    if(provider.rating){
+     return "Rating: " + provider.rating + " / 5"
+    }else{
+      return "No Reviews Yet"
+    }
+  }
+
   getProviderDistance(){
     let matrix = new google.maps.DistanceMatrixService;
     Geolocation.getCurrentPosition().then(position => {
