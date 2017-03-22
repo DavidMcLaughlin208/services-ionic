@@ -14,16 +14,20 @@ page-provider-register2 {
       opacity: .9;
     }
 
-     .rate-container {
+    .rate-container {
       float: right;
       width: 60%;
-     }
+    }
 
-     .check-container {
+    .check-container {
       float: left;
       width: 36%;
       margin: 12px 0px 38px 0px;
-     }
+    }
+
+    input {
+      border: none;
+    }
 
     ion-item {
       border-radius: 10px;
