@@ -2,7 +2,6 @@ import { Component, Input, OnChanges } from '@angular/core';
 
 
 
-// declare var google;
 
 @Component({
   selector: 'origin-location',
@@ -51,7 +50,7 @@ export class OriginLocationComponent implements OnChanges {
 
   showPickupTime() {
     this.popup = new google.maps.InfoWindow({
-      content: '<h5>You are Here</h5>'
+      content: '<p>You are Here</p>'
     });
 
     this.popup.open(this.map, this.pickupMarker);

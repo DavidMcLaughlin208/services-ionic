@@ -21,8 +21,9 @@ import { ProviderDetailsPage } from '../pages/provider-details/provider-details'
 import { ProviderHomePage } from '../pages/provider-home/provider-home';
 import { ProviderService } from '../providers/provider-service';
 import { OriginLocationComponent } from '../components/origin-location/origin-location';
-// import { CarService } from '../providers/car';
-// import { SimulateService} from '../providers/simulate'
+import { CarService } from '../providers/car';
+import { SimulateService} from '../providers/simulate';
+import { AvailableProvidersComponent } from '../components/available-providers/available-providers';
 
 
 
@@ -45,8 +46,10 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
     ProviderDetailsPage,
     AwaitingServicePage,
     Register2Page,
+    AvailableProvidersComponent,
     ProviderJobPage,
     UnloggedHomePage
+
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -68,8 +71,10 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
     ProviderDetailsPage,
     AwaitingServicePage,
     Register2Page,
+    AvailableProvidersComponent,
     ProviderJobPage,
     UnloggedHomePage
+
 
   ],
 
@@ -77,8 +82,8 @@ import { OriginLocationComponent } from '../components/origin-location/origin-lo
   AuthService,
   RequestService,
   ProviderService,
-  //CarService,
-  //SimulateService
+  CarService,
+  SimulateService
 
   ]
 })

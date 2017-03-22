@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+// import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class SimulateService {
 
-  constructor(public http: Http) {}
+  constructor() {}
 
   getCars(lat, lng) {
 
@@ -30,15 +30,15 @@ export class SimulateService {
   	cars:[{
   		id: 1,
   		coord: {
-  			lat: 32.7156,
-  			lng: -117.1591
+  			lat: 32.7155,
+  			lng: -117.1654
   		}
   	},
   	{
   		id: 2,
   		coord: {
-  			lat: 32.7157,
-  			lng: -117.1610
+  			lat: 32.7146,
+  			lng: -117.1605
   		}
   	}	
   ]
@@ -48,15 +48,15 @@ export class SimulateService {
   	cars:[{
   		id: 1,
   		coord: {
-  			lat: 32.7135,
-  			lng: -117.1547
+  			lat: 32.7156,
+  			lng: -117.1646
   		}
   	},
   	{
   		id: 2,
   		coord: {
-  			lat: 37.7165,
-  			lng: -117.1528
+  			lat: 32.7145,
+  			lng: -117.1610
   		}
   	}	
   ]
@@ -66,15 +66,15 @@ export class SimulateService {
   	cars:[{
   		id: 1,
   		coord: {
-  			lat: 32.7147,
-  			lng: -117.1503
+  			lat: 32.7146,
+  			lng: -117.1647
   		}
   	},
   	{
   		id: 2,
   		coord: {
-  			lat: 32.7136,
-  			lng: -132.7136
+  			lat: 32.7148,
+  			lng: -117.1610
   		}
   	}	
   ]
@@ -84,15 +84,15 @@ export class SimulateService {
   	cars:[{
   		id: 1,
   		coord: {
-  			lat: 32.7156,
-  			lng: -117.1665
+  			lat: 32.7146,
+  			lng: -117.1637
   		}
   	},
   	{
   		id: 2,
   		coord: {
-  			lat: 32.7126,
-  			lng: -117.1664
+  			lat: 32.7153,
+  			lng: -117.1611
   		}
   	}	
   ]
@@ -102,20 +102,92 @@ export class SimulateService {
   	cars:[{
   		id: 1,
   		coord: {
-  			lat: 32.7146,
-  			lng: -117.1583
+  			lat: 32.7156,
+  			lng: -117.1637
   		}
   	},
   	{
   		id: 2,
   		coord: {
-  			lat: 32.7146,
-  			lng: -117.1564
+  			lat: 32.7157,
+  			lng: -117.1611
   		}
   	}	
   ]
   };
 
-  private cars: Array<any> = [this.cars1, this.cars2, this.cars3, this.cars4, this.cars5]
+    private cars6 = {
+    cars:[{
+      id: 1,
+      coord: {
+        lat: 32.7166,
+        lng: -117.1624
+      }
+    },
+    {
+      id: 2,
+      coord: {
+        lat: 32.7157,
+        lng: -117.1606
+      }
+    }  
+  ]
+  };
+
+    private cars7 = {
+    cars:[{
+      id: 1,
+      coord: {
+        lat: 32.7166,
+        lng: -117.1620
+      }
+    },
+    {
+      id: 2,
+      coord: {
+        lat: 32.7157,
+        lng: -117.1602
+      }
+    }  
+  ]
+  };
+
+    private cars8 = {
+    cars:[{
+      id: 1,
+      coord: {
+        lat: 32.7161,
+        lng: -117.1619
+      }
+    },
+    {
+      id: 2,
+      coord: {
+        lat: 32.7152,
+        lng: -117.1601
+      }
+    }  
+  ]
+  };
+
+    private cars9 = {
+    cars:[{
+      id: 1,
+      coord: {
+        lat: 32.7157,
+        lng: -117.1619
+      }
+    },
+    {
+      id: 2,
+      coord: {
+        lat: 32.7146,
+        lng: -117.1610
+      }
+    }  
+  ]
+  };
+
+  private cars: Array<any> = [this.cars1, this.cars2, this.cars3, this.cars4, this.cars5, this.cars6, this.cars7, this.cars8, this.cars9]
 
 }
