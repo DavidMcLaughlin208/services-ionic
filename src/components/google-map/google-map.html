@@ -4,12 +4,18 @@
 
 	<origin-location
 		[map]="map"
-		[isPinSet]="isMapIdle">
+		[isPinSet]="isMapIdle"
+		(updatedServiceLocation)="updatedServiceLocation($event)">
 	</origin-location>
 
 	<available-providers
 		[map]="map"
 		[isServiceRequested]="isServiceRequested">
 	</available-providers>
+	<response-provider
+		[map]="map"	
+		[isServiceRequested]="isServiceRequested"
+		[serviceLocation]="currentLocation">
+	</response-provider>
 	
 </div>

@@ -1,10 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CarService } from '../../providers/car';
+// import { CarService } from '../../providers/car';
 
 @Component({
   selector: 'available-providers',
-  templateUrl: 'available-providers.html',
-  providers: [CarService]
+  templateUrl: 'available-providers.html'
+  // providers: []
+  //CarService
 })
 export class AvailableProvidersComponent implements OnInit {
   @Input() map: google.maps.Map;
@@ -12,7 +13,7 @@ export class AvailableProvidersComponent implements OnInit {
 
   public carMarkers: Array<google.maps.Marker>;
 
-  constructor(public carService: CarService) {
+  constructor() {
     this.carMarkers = [];
   }
 

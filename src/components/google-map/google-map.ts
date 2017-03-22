@@ -4,11 +4,14 @@ import { Geolocation } from 'ionic-native';
 import { Observable } from 'rxjs/Observable';
 import { OriginLocationComponent } from '../origin-location/origin-location';
 import { AvailableProvidersComponent } from '../available-providers/available-providers';
+import { ResponseProviderComponent } from '../response-provider/response-provider';
+import { CarService } from '../../providers/car';
 
 @Component({
   selector: 'google-map',
   templateUrl: 'google-map.html',
-  entryComponents: [OriginLocationComponent, AvailableProvidersComponent]
+  entryComponents: [OriginLocationComponent, AvailableProvidersComponent, ResponseProviderComponent],
+  providers: [CarService]
 })
 
 export class GoogleMapComponent implements OnInit {
@@ -17,6 +20,7 @@ export class GoogleMapComponent implements OnInit {
 
   public location; map;
   public isMapIdle: boolean;
+  public currentLocation: google.maps.LatLng;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController) {}
 
@@ -29,6 +33,11 @@ export class GoogleMapComponent implements OnInit {
     this.getLocation().subscribe(location => {
       this.centerLocation(location)
     })
+  }
+
+  updatedPickupLocation(location){
+    this.currentLocation = location;
+    this.centerLocation(location);
   }
 
   addMapEventListeners(){

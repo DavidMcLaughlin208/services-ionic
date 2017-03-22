@@ -1,7 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
-
-
-
+import { Component, Input, OnChanges, EventEmitter, Output} from '@angular/core';
+import { CarService } from '../../providers/car';
 
 @Component({
   selector: 'origin-location',
@@ -10,8 +8,9 @@ import { Component, Input, OnChanges } from '@angular/core';
 export class OriginLocationComponent implements OnChanges {
   @Input() isPinSet: boolean;
   @Input() map: google.maps.Map;
+  @Output() updatedServiceLocation: EventEmitter<google.maps.LatLng> = new EventEmitter();
 
-  private pickupMarker: google.maps.Marker;
+  private serviceMarker: google.maps.Marker;
   private popup: google.maps.InfoWindow;
 
   constructor() {
@@ -21,14 +20,14 @@ export class OriginLocationComponent implements OnChanges {
 
   ngOnChanges(changes) {
     if (this.isPinSet){
-      this.showPickupMarker();
+      this.showServiceMarker();
     } else {
-      this.removePickupMarker();
+      this.removeServiceMarker();
     }
   }
 
-  showPickupMarker(){
-    this.pickupMarker = new google.maps.Marker({
+  showServiceMarker(){
+    this.serviceMarker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.BOUNCE,
       position: this.map.getCenter(),
@@ -36,27 +35,29 @@ export class OriginLocationComponent implements OnChanges {
     })  
 
     setTimeout( () => {
-      this.pickupMarker.setAnimation(null);
+      this.serviceMarker.setAnimation(null);
     }, 750); 
 
-    this.showPickupTime();
+    this.showServiceTime();
+
+    this.updatedServiceLocation.next(this.serviceMarker.getPosition());
   }
 
-  removePickupMarker(){
-    if (this.pickupMarker){
-      this.pickupMarker.setMap(null);
+  removeServiceMarker(){
+    if (this.serviceMarker){
+      this.serviceMarker.setMap(null);
     }
   }
 
-  showPickupTime() {
+  showServiceTime() {
     this.popup = new google.maps.InfoWindow({
       content: '<p>You are Here</p>'
     });
 
-    this.popup.open(this.map, this.pickupMarker);
+    this.popup.open(this.map, this.serviceMarker);
 
-    google.maps.event.addListener(this.pickupMarker, 'click', () => {
-      this.popup.open(this.map, this.pickupMarker);
+    google.maps.event.addListener(this.serviceMarker, 'click', () => {
+      this.popup.open(this.map, this.serviceMarker);
     })
   }
 

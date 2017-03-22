@@ -13,6 +13,10 @@ export class CarService {
   	this.simulate = new SimulateService();
   }
 
+  findServiceCar(serviceLocation){
+
+  }
+
   getCars(lat, lng){
   	return Observable
   		.interval(2000)
