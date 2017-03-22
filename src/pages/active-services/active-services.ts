@@ -18,11 +18,23 @@ export class ActiveServicesPage {
   public isServiceRequested: boolean;
   job: boolean;
   jobInfo: any;
+  title: string;
+  titleInterval: any;
 
 
   constructor(public nav: NavController, public params: NavParams, private providerService: ProviderService, private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
     this.locationInterval = setInterval(this.updateLocation.bind(this), 10000);
     this.isServiceRequested = false;
+    this.title = "Awaiting Jobs"
+    this.titleInterval = setInterval(this.titleChange.bind(this), 1000);
+  }
+
+  titleChange(){
+    if(this.title.length === 16){
+      this.title = "Awaiting Jobs"
+    } else {
+      this.title = this.title + '.'
+    }
   }
 
   confirmService(){
@@ -56,6 +68,7 @@ export class ActiveServicesPage {
     console.log("ENTERING INTERVAL");
     // this.showLoading();
     Geolocation.getCurrentPosition().then((position) => {
+      console.log(position)
       let latLong = { lat: position['coords']['latitude'], long: position['coords']['longitude']}
       this.providerService.sendLocation(latLong).subscribe(res => {
         console.log(res)

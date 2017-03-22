@@ -19,6 +19,7 @@ export class User {
 @Injectable()
 export class AuthService {
   currentUser: User;
+  authToken: string;
 
 
   constructor(private http:Http){
@@ -78,8 +79,10 @@ export class AuthService {
   public logout() {
     return Observable.create(observer => {
       this.currentUser = null;
-      window.localStorage.setItem( 'authToken', null )
-      window.localStorage.setItem( 'client', null )
+      this.authToken = null;
+      // window.localStorage.clear();
+      // window.localStorage.setItem( 'authToken', null )
+      // window.localStorage.setItem( 'client', null )
       observer.next(true);
       observer.complete();
     })
