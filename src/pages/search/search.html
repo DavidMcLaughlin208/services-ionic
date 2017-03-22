@@ -19,7 +19,8 @@
         <div><span> Base Rate: ${{provider.base_rate}}0</span></div>
         <div><span>Phone: {{provider.phone_number}}</span></div>
         <div><span>Distance: {{provider.distance}}</span>
-        <span>Rating: {{provider.rating}} / 5</span></div>
+
+        <span>{{this.ratings(provider)}}</span></div>
       </div>
 
       <button ion-button block class="details-btn">Details</button>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, Loading, AlertController } from 'ionic-angular';
 import { ProviderService } from '../../providers/provider-service';
 import { GoogleMapComponent } from '../../components/google-map/google-map';
+import { JobCompletionPage } from '../job-completion/job-completion';
 
 @Component({
   selector: 'page-awaiting-service',
@@ -17,6 +18,10 @@ export class AwaitingServicePage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AwaitingServicePage');
+  }
+
+  completeJob(){
+    this.nav.push(JobCompletionPage);
   }
 
   showLoading() {
