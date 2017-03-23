@@ -39,7 +39,7 @@ export class OriginLocationComponent implements OnChanges {
       this.pickupMarker.setAnimation(null);
     }, 750); 
 
-    this.showPickupTime();
+    // this.showPickupTime();
   }
 
   removePickupMarker(){

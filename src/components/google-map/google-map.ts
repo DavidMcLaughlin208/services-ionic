@@ -76,7 +76,7 @@ export class GoogleMapComponent implements OnInit {
   createMap(location = new google.maps.LatLng(39.1031, -84.5120)){
     let mapOptions = {
       center: location,
-      zoom: 15,
+      zoom: 13,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true
     }
