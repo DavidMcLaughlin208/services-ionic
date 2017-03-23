@@ -32,7 +32,7 @@ export class OriginLocationComponent implements OnChanges {
       map: this.map,
       animation: google.maps.Animation.BOUNCE,
       position: this.map.getCenter(),
-      icon: 'img/me.png'
+      icon: 'img/mend.png'
     })  
 
     setTimeout( () => {

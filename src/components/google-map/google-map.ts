@@ -73,7 +73,7 @@ export class GoogleMapComponent implements OnInit {
     return locationObs;
   }
 
-  createMap(location = new google.maps.LatLng(40.7127, -74.0059)){
+  createMap(location = new google.maps.LatLng(39.1031, -84.5120)){
     let mapOptions = {
       center: location,
       zoom: 15,
