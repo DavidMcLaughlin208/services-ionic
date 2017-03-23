@@ -1,26 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Thanks!</ion-title>
+    <ion-title>Thank You!</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="finish-content" padding>
   <div class="finish-box">
 
-    <h2>Thank you for using mend!</h2>
+    <h2>That's it! We hope we made things easier for you.</h2>
 
-    <p>Please leave a review about your service provider:</p>
+    <h3>Have something to say? Share it with us here:</h3>
 
-    <ion-item>
-      <ion-label>Rating</ion-label>
-      <ion-select [(ngModel)]="ratings">
-        <ion-option value="1">1</ion-option>
-        <ion-option value="2">2</ion-option>
-        <ion-option value="3">3</ion-option>
-        <ion-option value="4">4</ion-option>
-        <ion-option value="5">5</ion-option>
-      </ion-select>
-    </ion-item>
+    <textarea placeholder="Enter comment here..." rows="10" name="comment[text]" id="comment_text" cols="10" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+
+    <h3>And don't forget to rate your overall experience!</h3>
+
+    <select>
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+
   </div>
   
   <button ion-button (click)="goHome()">Submit</button>

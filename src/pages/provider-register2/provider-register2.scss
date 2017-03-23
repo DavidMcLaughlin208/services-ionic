@@ -3,55 +3,36 @@ $defaultBackgroundColor: #000;
 page-provider-register2 {
 
   .login-content {
+    font-family: "Noto Sans";
     background: lighten($defaultBackgroundColor, 20%);
+
+    h3 {
+      margin: 10px;
+    }
 
     .login-box {
       color: #fff;
       background: #8d9fa2;
       padding: 14px 14px 0px 14px;
-      margin: 20px;
+      margin: 10px;
       border-radius: 10px;
       opacity: .9;
     }
 
-    // .rate-container {
-    //   float: right;
-    //   width: 60%;
-    // }
+    .rate-container {
+      margin-bottom: 30px;
+    }
 
-    // .check-container {
-    //   float: left;
-    //   width: 36%;
-    //   margin: 12px 0px 38px 0px;
-    // }
-
-    // input {
-    //   border: none;
-    // }
-
-    // ion-item {
-    //   border-radius: 10px;
-    //   margin-bottom: 30px;
-    //   border: 1px solid #ffffff;
-    //   border-bottom: 0px !important;
-    //   box-shadow: none !important;
-    // }
-
-    // .signup-col {
-    //   margin: 0px 16px 0px 16px;
-    //   padding-bottom: 20px;
-    // }
-
-    // .item-inner {
-    //   border-bottom-color: #ffffff !important;
-    //   box-shadow: none !important;
-    // }
+    .check-container {
+      margin-bottom: 4px;
+    }
 
     .button-ios {
       margin: auto;
     }
 
     .submit-btn {
+      margin-bottom: 10px;
       background: #387ef5;
       border-radius: 10px;
       color: #fff;

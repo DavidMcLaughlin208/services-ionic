@@ -3,6 +3,7 @@ $defaultBackgroundColor: #000;
 page-awaiting-service {
 
   h2 {
+    font-family: "Noto Sans";
     padding-top: 10px;
     text-align: center;
   }
@@ -19,6 +20,7 @@ page-awaiting-service {
     }
 
     button {
+      font-family: "Noto Sans";
       margin: 5%;
       width: 90%;
       border-radius: 10px;

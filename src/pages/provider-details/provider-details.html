@@ -8,7 +8,7 @@
    </ion-buttons>
 
     <ion-title>
-      <span [hidden]="isServiceRequested">On the way...</span>
+      <span [hidden]="isServiceRequested">Requesting Service...</span>
       <span [hidden]="!isServiceRequested">No Service</span>
     </ion-title>
 
@@ -26,11 +26,11 @@
       
       <h2>{{provider.company_name}}</h2><hr><br>
 
-      <div>Employee: {{provider.name}}</div>
-      <div>Base Rate: ${{provider.base_rate}}0</div>
-      <div>Phone: {{provider.phone_number}}</div>
-      <div>Distance: {{provider.distance}}</div>
-      <div>Rating: {{provider.rating}} / 5</div>
+      <p>Employee: {{provider.name}}</p>
+      <p>Base Rate: ${{provider.base_rate}}0</p>
+      <p>Phone: {{provider.phone_number}}</p>
+      <p>Distance: {{provider.distance}}</p>
+      <p>Rating: {{provider.rating}} / 5</p>
       
     </div>
 
