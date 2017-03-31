@@ -23,6 +23,14 @@ export class ProviderDetailsPage {
     console.log('ionViewDidLoad ProviderDetailsPage');
   }
 
+  ratings(provider){
+    if(provider.rating){
+     return "Rating: " + provider.rating + " / 5"
+    }else{
+      return "No Reviews Yet"
+    }
+  }
+
   confirmService(){
     let details = { job: { provider_service_id: this.provider.id , auth_token: window.localStorage.getItem("authToken") } }
     this.providerService.startJob(details).subscribe(res => {
