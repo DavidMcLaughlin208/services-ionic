@@ -23,15 +23,15 @@
 <ion-content class="provider-details" padding>
   <div class="details-border">
     <div class="details-box">
-      
+
       <h2>{{provider.company_name}}</h2><hr><br>
 
       <p>Employee: {{provider.name}}</p>
       <p>Base Rate: ${{provider.base_rate}}0</p>
       <p>Phone: {{provider.phone_number}}</p>
       <p>Distance: {{provider.distance}}</p>
-      <p>Rating: {{provider.rating}} / 5</p>
-      
+      <p>{{this.ratings(provider)}}</p>
+
     </div>
 
     <div class="google-map-wrapper">

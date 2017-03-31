@@ -42,3 +42,16 @@ ionic emulate ios/android
 
 
 not fully tested, just nice reference. feel free to build nicer readme! <3
+
+
+
+-------------------------------
+
+To get the app on your iPhone:
+
+ionic build ios
+
+load the *.xcodeproj file in Xcode
+
+Plug in your phone and "build and run"
+
